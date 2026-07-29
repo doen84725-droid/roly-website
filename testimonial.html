@@ -42,7 +42,27 @@
             border-radius: 16px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
+/* 裝圖片與浮水印的外框 */
+.watermark-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
 
+/* 浮水印文字樣式 */
+.watermark-container::after {
+  content: "© N次方營養運動俱樂部"; /* 這裡改為你的浮水印文字 */
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  color: rgba(255, 255, 255, 0.7); /* 白色 70% 透明度 */
+  font-size: 13px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.4); /* 暗色底襯，讓文字在淺色背景也清晰 */
+  padding: 4px 10px;
+  border-radius: 6px;
+  pointer-events: none; /* 防止干擾滑鼠點擊 */
+}
         /* 👑 故事區塊樣式 */
         .story-block {
             margin-bottom: 45px;
@@ -247,6 +267,7 @@
         </div>
 
         <div class="photo-wrapper">
+            <div class="watermark-container">
             <img src="https://i.meee.com.tw/FsGevM1.png" alt="楊主恩體態蛻變見證照片" class="testimonial-img">
         </div>
 
@@ -290,6 +311,7 @@
 
         <!-- 📸 兩張照片左右並排 -->
         <div class="photo-grid-side-by-side">
+            <div class="watermark-container">
             <img src="https://i.meee.com.tw/zBFMNr9.jpg" alt="素筠體態蛻變對比照片">
             <img src="https://i.meee.com.tw/Jh8gm5r.png" alt="素筠產後圓夢婚紗照">
         </div>
