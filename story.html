@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>馨文 (Roly) 的個人故事 | N次方營養運動俱樂部</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  /* 主體背景：套用首頁的明亮微粉暖白漸層 */
+  body {
+    background: linear-gradient(180deg, #FDFAF8 0%, #F8F3EF 100%);
+    padding: 24px 16px;
+    color: #403028;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* 頁面容器 */
+  .story-container {
+    max-width: 680px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 32px 24px;
+    box-shadow: 0 10px 30px rgba(224, 136, 128, 0.12);
+    border: 1px solid #F5EBE6;
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* 返回首頁按鈕 */
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #9C7268;
+    text-decoration: none;
+    margin-bottom: 24px;
+    transition: color 0.2s ease;
+    cursor: pointer;
+  }
+  .back-btn:hover { color: #E87A84; }
+
+  /* 主標題區塊 */
+  .story-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .story-tag {
+    display: inline-block;
+    padding: 4px 14px;
+    background-color: #FAF4F0;
+    color: #E87A84;
+    border: 1px solid #F0E2DC;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .story-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #2D201A;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+  .story-subtitle {
+    font-size: 15px;
+    color: #9C7268;
+  }
+
+  /* 對比照/影像區塊 */
+  .photo-box {
+    width: 100%;
+    margin: 24px 0 32px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(200, 140, 130, 0.12);
+    border: 1px solid #F5EBE6;
+  }
+  .photo-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .photo-caption {
+    background-color: #FAF4F0;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: #8C756B;
+    text-align: center;
+    border-top: 1px solid #F0E2DC;
+  }
+
+  /* 內文區塊 */
+  .story-section {
+    margin-bottom: 28px;
+  }
+  .story-section h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #2D201A;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .story-section p {
+    font-size: 15px;
+    color: #524037;
+    margin-bottom: 12px;
+  }
+
+  /* 引言金句方塊 */
+  .quote-box {
+    background-color: #FAF4F0;
+    border-left: 4px solid #E87A84;
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 24px 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #D96571;
+    border-top: 1px solid #F0E2DC;
+    border-right: 1px solid #F0E2DC;
+    border-bottom: 1px solid #F0E2DC;
+  }
+
+  /* 快速留名單表單區塊 */
+  .lead-form-card {
+    background: #FAF4F0;
+    border: 1px solid #F0E2DC;
+    border-radius: 20px;
+    padding: 24px;
+    margin-top: 36px;
+  }
+  .form-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .form-header h4 {
+    font-size: 19px;
+    font-weight: 800;
+    color: #2D201A;
+    margin-bottom: 6px;
+  }
+  .form-header p {
+    font-size: 13px;
+    color: #9C7268;
+  }
+  .form-group {
+    margin-bottom: 16px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    color: #524037;
+    margin-bottom: 6px;
+  }
+  .form-control {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 14px;
+    border: 1.5px solid #E0D0C8;
+    border-radius: 10px;
+    outline: none;
+    background-color: #ffffff;
+    color: #2D201A;
+    transition: border-color 0.2s ease;
+  }
+  .form-control:focus {
+    border-color: #E87A84;
+  }
+  .form-submit-btn {
+    width: 100%;
+    padding: 14px 0;
+    background: linear-gradient(135deg, #FF8E88, #E87A84);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(232, 122, 132, 0.35);
+    transition: transform 0.15s ease;
+  }
+  .form-submit-btn:disabled {
+    background: #D5C5BC;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  .form-submit-btn:active { transform: scale(0.98); }
+
+  /* 成功傳送提示畫面 */
+  .success-message {
+    display: none;
+    text-align: center;
+    padding: 20px 10px;
+  }
+  .success-icon {
+    font-size: 42px;
+    margin-bottom: 12px;
+  }
+  .success-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #276749;
+    margin-bottom: 8px;
+  }
+  .success-desc {
+    font-size: 14px;
+    color: #524037;
+    margin-bottom: 20px;
+  }
+
+  /* 底部 CTA 導向區 */
+  .cta-card {
+    background: linear-gradient(135deg, #3D2E26, #2D201A);
+    color: #ffffff;
+    border-radius: 18px;
+    padding: 24px;
+    text-align: center;
+    margin-top: 24px;
+  }
+  .cta-card h4 {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .cta-card p {
+    font-size: 13px;
+    color: #D5C5BC;
+    margin-bottom: 18px;
+  }
+  .cta-btn {
+    display: inline-block;
+    width: 100%;
+    max-width: 320px;
+    padding: 12px 0;
+    background: linear-gradient(135deg, #FF8E88, #E87A84);
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    box-shadow: 0 4px 14px rgba(232, 122, 132, 0.35);
+    transition: transform 0.15s ease;
+  }
+  .cta-btn:active { transform: scale(0.98); }
+
+  /* 頁尾 Footer 樣式 */
+  .page-footer {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px dashed #F0E2DC;
+    text-align: center;
+    font-size: 12px;
+    color: #8C756B;
+    line-height: 1.8;
+  }
+  .footer-brand {
+    font-size: 14px;
+    font-weight: 800;
+    color: #3D2E26;
+    margin-bottom: 6px;
+  }
+  .footer-notice {
+    font-size: 11px;
+    color: #A38C82;
+    margin-top: 10px;
+  }
+
+  /* 手機螢幕優化 */
+  @media (max-width: 480px) {
+    .story-container { padding: 24px 18px; }
+    .story-title { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="story-container">
+  <!-- 指向同目錄下的首頁 index.html -->
+  <a href="./index.html" class="back-btn">← 返回首頁</a>
+
+  <!-- 頁頭 -->
+  <div class="story-header">
+    <span class="story-tag">馨文 Roly 的個人故事</span>
+    <h1 class="story-title">「不用吃藥打針，我也能找回對體態的自信！」</h1>
+    <p class="story-subtitle">從試過各種無效方法，到成為陪伴無數人改變的體態顧問</p>
+  </div>
+
+  <!-- 前後照片展示區 -->
+  <div class="photo-box">
+    <img src="https://i.meee.com.tw/M9DLjJV.png" alt="馨文 Roly 體態改變歷程">
+    <div class="photo-caption">✨ 左：曾經在各種減重方法中迷惘的我 ｜ 右：找到正確方法後，自信健康的自己</div>
+  </div>
+
+  <!-- 故事內容第一段：痛點與迷惘 -->
+  <div class="story-section">
+    <h3>💔 曾經，我也在「減重循環」裡迷惘過</h3>
+    <p>你是不是也常覺得：試過了好多減肥方法，挨餓、少吃、瘋狂運動，甚至花大錢買了許多標榜快速見效的產品，但最後不是沒效果，就是一正常吃就立刻反彈？</p>
+    <p>過去的我，也曾經深深被這個循環困住。那時候總覺得減重好痛苦，甚至開始懷疑是不是自己的問題，失去了對身材與生活的自信。</p>
+  </div>
+
+  <!-- 故事金句 -->
+  <div class="quote-box">
+    「真正的體態管理，不需要靠吃藥打針，更不用極端挨餓。只要給身體對的營養與節奏，改變就會自然發生。」
+  </div>
+
+  <!-- 故事內容第二段：轉折與契機 -->
+  <div class="story-section">
+    <h3>🌱 轉折點：找到對的科學方法</h3>
+    <p>直到透過一張傳單遇到我的教練，在他的引導與陪伴下，我學習調整飲食、水量與規律作息。透過這套正確且均衡的方法，我<b>幫助自己半年體態管理 17 公斤、12% 體脂肪</b>！</p>
+    <p>我不僅順利擺脫了過去的沉重負擔，困擾已久的偏頭痛、排便與皮膚問題也隨之改善，精神氣色都變得越來越好。這個改變不只是外在的，更是由內而外重新擁抱自信的過程。</p>
+  </div>
+
+  <!-- 故事內容第三段：使命與合作夥伴 -->
+  <div class="story-section">
+    <h3>🤝 加入「N次方營養運動俱樂部」的初衷</h3>
+    <p>因為親身走過這條路，我非常懂那種「找不到方法、不知道怎麼開始」的孤單與挫折感。</p>
+    <p>所以我決定合作加入 <b>N次方營養運動俱樂部</b>，並擔任體態管理顧問。我想把我成功的方法分享給每個想改變的人，陪你一起打造「健康不反彈」的理想生活。</p>
+  </div>
+
+  <!-- 網頁原生問卷區塊 -->
+  <div class="lead-form-card" id="consult-form">
+    <div class="form-header" id="formHeader">
+      <h4>📋 免費體驗諮詢與體態評估</h4>
+      <p>花 30 秒填寫資料，Roly 會儘快與您聯繫提供專屬建議！</p>
+    </div>
+    
+    <form id="leadForm" onsubmit="submitForm(event)">
+      <div class="form-group">
+        <label for="name">您的姓名 / 暱稱 *</label>
+        <input type="text" id="name" class="form-control" placeholder="例如：王小明" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">聯絡電話 / LINE ID *</label>
+        <input type="text" id="phone" class="form-control" placeholder="例如：0912345678 或 LINE ID" required>
+      </div>
+
+      <div class="form-group">
+        <label for="city">居住縣市 *</label>
+        <select id="city" class="form-control" required>
+          <option value="" disabled selected>請選擇縣市</option>
+          <option value="基隆市">基隆市</option>
+          <option value="台北市">台北市</option>
+          <option value="新北市">新北市</option>
+          <option value="桃園市">桃園市</option>
+          <option value="新竹縣市">新竹縣市</option>
+          <option value="苗栗縣">苗栗縣</option>
+          <option value="台中市">台中市</option>
+          <option value="彰化縣">彰化縣</option>
+          <option value="南投縣">南投縣</option>
+          <option value="雲林縣">雲林縣</option>
+          <option value="嘉義縣市">嘉義縣市</option>
+          <option value="台南市">台南市</option>
+          <option value="高雄市">高雄市</option>
+          <option value="屏東縣">屏東縣</option>
+          <option value="宜蘭縣">宜蘭縣</option>
+          <option value="花蓮縣">花蓮縣</option>
+          <option value="台東縣">台東縣</option>
+          <option value="離島地區">離島地區</option>
+          <option value="海外">海外</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="goal">預計想雕塑 / 減重公斤數 *</label>
+        <select id="goal" class="form-control" required>
+          <option value="" disabled selected>請選擇目標</option>
+          <option value="3-5公斤">3 - 5 公斤（微調線條）</option>
+          <option value="5-10公斤">5 - 10 公斤（顯著改變）</option>
+          <option value="10公斤以上">10 公斤以上（大突破）</option>
+          <option value="體態雕塑/增肌">體態雕塑 / 增肌線條</option>
+        </select>
+      </div>
+
+      <button type="submit" id="submitBtn" class="form-submit-btn">✨ 送出資料，預約免費評估</button>
+    </form>
+
+    <!-- 傳送成功提示卡片 -->
+    <div id="successMessage" class="success-message">
+      <div class="success-icon">🎉</div>
+      <div class="success-title">預約資料已傳送成功！</div>
+      <div class="success-desc" id="successDesc">感謝您的填寫！Roly 已經收到您的資料，會儘快與您聯繫！</div>
+      <a href="https://line.me/ti/p/QsCwlCVTSB" target="_blank" rel="noopener noreferrer" class="cta-btn">
+        💬 點此加 Roly 個人 LINE 優先通關
+      </a>
+    </div>
+  </div>
+
+  <!-- 底部號召 Action -->
+  <div class="cta-card">
+    <h4>想直接一對一聊聊嗎？</h4>
+    <p>不用擔心無所適從，也可以直接私訊，讓我成為你體態改造路上最堅強的後盾！</p>
+    <a href="https://line.me/ti/p/QsCwlCVTSB" target="_blank" rel="noopener noreferrer" class="cta-btn">
+      💬 私訊 Roly 個人 LINE 了解體驗計畫
+    </a>
+  </div>
+
+  <!-- 頁尾區塊 -->
+  <footer class="page-footer">
+    <div class="footer-brand">N次方營養運動俱樂部</div>
+    <p>📍 板橋門市提供：跳床運動｜筋膜放鬆｜1對1體態管理</p>
+    <p>服務時間：週一至週六（預約制）</p>
+    <p class="footer-notice">© 2026 Roly 馨文 All Rights Reserved.</p>
+  </footer>
+</div>
+
+<script>
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxyw2VO6m0oi3EcdvYyNpJjvtgyHVYR4ZOqpyxsMksdVHKNUqGYWdxxQN_XK_m6nn9n_A/exec";
+
+  function submitForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.innerText = '資料傳送中...';
+
+    const name = document.getElementById('name').value;
+    const formData = {
+      name: name,
+      phone: document.getElementById('phone').value,
+      city: document.getElementById('city').value,
+      goal: document.getElementById('goal').value
+    };
+
+    fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    })
+    .then(() => {
+      document.getElementById('leadForm').style.display = 'none';
+      document.getElementById('formHeader').style.display = 'none';
+      document.getElementById('successDesc').innerText = `感謝 ${name} 的填寫！Roly 已經收到您的資料，會儘快與您聯繫！`;
+      document.getElementById('successMessage').style.display = 'block';
+    })
+    .catch(error => {
+      document.getElementById('leadForm').style.display = 'none';
+      document.getElementById('formHeader').style.display = 'none';
+      document.getElementById('successDesc').innerText = `感謝 ${name} 的填寫！請點擊下方按鈕直接加 Roly 的私人 LINE 聯繫！`;
+      document.getElementById('successMessage').style.display = 'block';
+    });
+  }
+</script>
+
+</body>
+</html>
