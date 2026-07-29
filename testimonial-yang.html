@@ -19,6 +19,19 @@
             padding: 20px;
             line-height: 1.6;
         }
+        .back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #9C7268;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+.back-btn:hover { color: #E87A84; }
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -164,6 +177,8 @@
 <body>
 
 <div class="container">
+    <!-- 指向同目錄下的首頁 index.html -->
+<a href="./index.html" class="back-btn">← 返回首頁</a>
     <div class="header">
         <h1>從急診護理師到 3 寶媽的體態蛻變奇蹟</h1>
         <p><strong>見證主角：主恩</strong></p>
