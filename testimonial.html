@@ -95,6 +95,23 @@
             margin: 0 auto;
         }
 
+        /* 📸 兩張照片左右並排網格 */
+        .photo-grid-side-by-side {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 25px 0;
+            align-items: center;
+        }
+        .photo-grid-side-by-side img {
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            border: 2px solid #FFF0F0;
+            object-fit: cover;
+        }
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -257,21 +274,22 @@
         </div>
     </div>
 
-    <!-- 🌟 見證故事 2：素筠（新增） -->
+    <!-- 🌟 見證故事 2：素筠 -->
     <div class="story-block">
         <div class="header">
-            <h1>半年甩肉 30kg！全職媽咪重獲健康與時間自由</h1>
+            <h1>半年甩肉 30kg！全職媽咪完成婚紗美夢與健康人生</h1>
             <p><strong>見證主角：素筠</strong></p>
             <div class="tag-group">
                 <span class="tag">#半年成功減重30kg</span>
-                <span class="tag">#兼顧孩子早療需求</span>
-                <span class="tag">#時間自由創業</span>
+                <span class="tag">#圓夢拍攝婚紗照</span>
+                <span class="tag">#重獲自信與健康</span>
             </div>
         </div>
 
-        <div class="photo-wrapper">
-            <img src="https://i.meee.com.tw/zBFMNr9.jpg" alt="素筠體態蛻變對比照片" class="testimonial-img">
-            <img src="https://i.meee.com.tw/Jh8gm5r.png" alt="素筠事業團隊與零售屋分享照片" class="testimonial-img">
+        <!-- 📸 兩張照片左右並排 -->
+        <div class="photo-grid-side-by-side">
+            <img src="https://i.meee.com.tw/zBFMNr9.jpg" alt="素筠體態蛻變對比照片">
+            <img src="https://i.meee.com.tw/Jh8gm5r.png" alt="素筠產後圓夢婚紗照">
         </div>
 
         <div class="stats-grid">
@@ -280,23 +298,23 @@
                 <div class="stat-number">-30 kg</div>
             </div>
             <div class="stat-card">
-                <div>三個月累積收入</div>
-                <div class="stat-number">15 萬+</div>
+                <div>健康減脂計畫</div>
+                <div class="stat-number">6 個月</div>
             </div>
             <div class="stat-card">
-                <div>帶領團隊夥伴</div>
-                <div class="stat-number">13 位+</div>
+                <div>幸福圓夢成就</div>
+                <div class="stat-number">披上婚紗 ✨</div>
             </div>
         </div>
 
         <div class="story-section">
             <h2>產後肥胖困擾與蛻變契機</h2>
-            <p>我是素筠，一位全職家庭主婦。當初因為產後肥胖的關係，在網路上遇到了我的奶昔天使——主恩教練。在他的細心協助與指導之下，我短短半年就成功減去了 30 公斤！不僅外表煥然一新，更重要的是找回了久違的自信與身體健康。</p>
+            <p>我是素筠，一位全職家庭主婦。當初因為產後肥胖的關係，在網路上遇到了我的教練。在他的細心協助與專業指導之下，我短短半年就成功減去了 30 公斤！不僅外表煥然一新，更重要的是找回了久違的自信與身體健康。</p>
         </div>
 
         <div class="story-section">
-            <h2>突破現實限制，打造時間自由的家庭事業</h2>
-            <p>老公每天工作 13 小時養家非常辛苦，我很想幫忙分擔家計。加上孩子需要定期做早療、每兩天就要去上課，讓我無法選擇一般早九晚五的打卡上班。這份事業讓我能自由分配時間，一手照顧家庭與孩子早療、一手發展事業，3 個月下來累積收入已突破 15 萬元！</p>
+            <h2>圓夢時刻：完成結婚時來不及拍的婚紗照</h2>
+            <p>過去因為體態與生活的忙碌，結婚時一直沒有機會留下美好的婚紗紀念。這次透過健康的營養飲食與規律作息成功甩肉 30 公斤後，我終於自信地穿上美麗的婚紗，完成了結婚時來不及拍的婚紗照！這份改變不僅帶給我極大的成就感，也讓全家人的生活充滿了正能量與幸福感。</p>
         </div>
     </div>
 
