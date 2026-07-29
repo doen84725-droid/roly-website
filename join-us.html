@@ -20,6 +20,19 @@
             padding: 20px;
             line-height: 1.6;
         }
+        .back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #9C7268;
+  text-decoration: none;
+  margin-bottom: 20px;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+.back-btn:hover { color: #E87A84; }
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -168,7 +181,8 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container"><!-- 指向同目錄下的首頁 index.html -->
+<a href="./index.html" class="back-btn">← 返回首頁</a>
     <h1 class="hero-title">🤝 招募體態管理顧問 / 運動事業夥伴</h1>
     <p class="subtitle">打破用時間換金錢的循環，打造屬於你自己的事業與自由生活！</p>
 
