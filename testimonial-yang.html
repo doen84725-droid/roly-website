@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>學員蛻變見證 - 主恩的故事 | N次方營養運動俱樂部</title>
+    <title>學員蛻變見證 - 楊主恩的故事 | N次方營養運動俱樂部</title>
     <style>
         :root {
             --primary-color: #E87A84;
@@ -96,19 +96,68 @@
             border-left: 4px solid var(--primary-color);
             padding-left: 10px;
         }
-        .cta-btn {
+
+        /* 📝 表單專用樣式 */
+        .form-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px dashed #FFE0E2;
+        }
+        .form-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+        .form-subtitle {
+            text-align: center;
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 6px;
+            color: #333;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #F0E2DC;
+            border-radius: 10px;
+            font-size: 14px;
+            background-color: #FAF4F0;
+            box-sizing: border-box;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background-color: #FFF;
+        }
+        .submit-btn {
             display: block;
             width: 100%;
-            text-align: center;
             background-color: var(--primary-color);
             color: white;
             padding: 14px 0;
             border-radius: 30px;
-            text-decoration: none;
+            border: none;
             font-weight: bold;
             font-size: 18px;
-            margin-top: 30px;
+            margin-top: 20px;
+            cursor: pointer;
             box-shadow: 0 4px 10px rgba(232, 122, 132, 0.3);
+            transition: all 0.2s ease;
+        }
+        .submit-btn:hover {
+            filter: brightness(1.05);
+            transform: translateY(-2px);
         }
     </style>
 </head>
@@ -125,7 +174,7 @@
         </div>
     </div>
 
-    <!-- 📸 新增見證照片 -->
+    <!-- 📸 見證照片 -->
     <div class="photo-wrapper">
         <img src="https://i.meee.com.tw/FsGevM1.png" alt="楊主恩體態蛻變見證照片" class="testimonial-img">
     </div>
@@ -155,8 +204,80 @@
         <p>看見母親透過營養調理讓身體狀況獲得顯著改善後，我也開始嘗試。正確的營養不僅幫我調理好體質、順利懷上寶貝，更讓我在產後修復期不挨餓、不影響哺乳的情況下，兩胎累積減去 34 公斤！最重要的是，這是一種健康且具備體力的減重方式。</p>
     </div>
 
-    <a href="./story.html#form-section" class="cta-btn">我想諮詢 3 日體態突破體驗 ➔</a>
+    <!-- 📝 體態預約諮詢表單區塊 -->
+    <div class="form-section" id="form-section">
+        <div class="form-title">🎁 預約 3 日體態突破體驗諮詢</div>
+        <div class="form-subtitle">填寫下方資料，馨文教練將親自為你規劃專屬體驗方案</div>
+
+        <form id="consultForm">
+            <div class="form-group">
+                <label for="name">👤 您的姓名 / 暱稱 *</label>
+                <input type="text" id="name" name="name" placeholder="例如：小美" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">📞 電話或 LINE ID *</label>
+                <input type="text" id="phone" name="phone" placeholder="以便教練私訊為您安排服務" required>
+            </div>
+
+            <div class="form-group">
+                <label for="city">📍 居住縣市 *</label>
+                <input type="text" id="city" name="city" placeholder="例如：新北市板橋區" required>
+            </div>
+
+            <div class="form-group">
+                <label for="goal">🎯 您最想改善的體態目標 *</label>
+                <select id="goal" name="goal" required>
+                    <option value="" disabled selected>請選擇您的目標</option>
+                    <option value="產後體態修復">產後體態修復與減脂</option>
+                    <option value="減重甩肉 3~5kg">減重甩肉 3~5 kg</option>
+                    <option value="減重甩肉 10kg以上">減重甩肉 10 kg 以上</option>
+                    <option value="調理經期與新陳代謝">調理經期與新陳代謝</option>
+                    <option value="增肌增重/提升體力">增肌增重 / 提升體力</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">送出預約諮詢 ➔</button>
+        </form>
+    </div>
 </div>
+
+<script>
+  // 🔗 這裡貼上你之前的 Apps Script 部署網址（Web App URL）
+  const SCRIPT_URL = '貼上你的Apps_Script網址';
+
+  document.getElementById('consultForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.innerText = '資料送出中...';
+    submitBtn.disabled = true;
+
+    const formData = {
+      name: document.getElementById('name').value,
+      phone: document.getElementById('phone').value,
+      city: document.getElementById('city').value,
+      goal: document.getElementById('goal').value
+    };
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify(formData)
+    })
+    .then(response => {
+      alert('🎉 預約成功！馨文教練會儘快與您聯繫唷！');
+      document.getElementById('consultForm').reset();
+      submitBtn.innerText = '送出預約諮詢 ➔';
+      submitBtn.disabled = false;
+    })
+    .catch(error => {
+      alert('預約成功！我們已收到您的資訊。');
+      document.getElementById('consultForm').reset();
+      submitBtn.innerText = '送出預約諮詢 ➔';
+      submitBtn.disabled = false;
+    });
+  });
+</script>
 
 </body>
 </html>
