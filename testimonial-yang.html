@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>學員蛻變見證 - 主恩的故事 | N次方營養運動俱樂部</title>
+    <title>學員蛻變見證集 | N次方營養運動俱樂部</title>
     <style>
         :root {
             --primary-color: #E87A84;
@@ -20,18 +20,18 @@
             line-height: 1.6;
         }
         .back-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #9C7268;
-  text-decoration: none;
-  margin-bottom: 20px;
-  transition: color 0.2s ease;
-  cursor: pointer;
-}
-.back-btn:hover { color: #E87A84; }
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #9C7268;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: color 0.2s ease;
+            cursor: pointer;
+        }
+        .back-btn:hover { color: #E87A84; }
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -40,10 +40,20 @@
             border-radius: 16px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
+
+        /* 👑 故事區塊樣式 */
+        .story-block {
+            margin-bottom: 45px;
+            padding-bottom: 35px;
+            border-bottom: 2px dashed #FFE0E2;
+        }
+        .story-block:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
         .header {
             text-align: center;
-            border-bottom: 2px solid var(--bg-color);
-            padding-bottom: 20px;
             margin-bottom: 25px;
         }
         .header h1 {
@@ -69,11 +79,14 @@
         /* 📸 見證照片展示區塊 */
         .photo-wrapper {
             margin: 25px 0;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
         }
         .testimonial-img {
             width: 100%;
-            max-width: 600px;
+            max-width: 550px;
             height: auto;
             border-radius: 16px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
@@ -101,20 +114,21 @@
             color: var(--primary-color);
         }
         .story-section {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         .story-section h2 {
             font-size: 18px;
             color: #333;
             border-left: 4px solid var(--primary-color);
             padding-left: 10px;
+            margin-bottom: 10px;
         }
 
         /* 📝 表單專用樣式 */
         .form-section {
             margin-top: 40px;
             padding-top: 30px;
-            border-top: 2px dashed #FFE0E2;
+            border-top: 2px solid var(--primary-color);
         }
         .form-title {
             text-align: center;
@@ -171,86 +185,119 @@
         .submit-btn:hover {
             filter: brightness(1.05);
             transform: translateY(-2px);
-        } /* 頁尾 Footer 樣式 */
-  .page-footer {
-    margin-top: 40px;
-    padding-top: 24px;
-    border-top: 1px dashed #F0E2DC;
-    text-align: center;
-    font-size: 12px;
-    color: #8C756B;
-    line-height: 1.8;
-  }
-  .footer-brand {
-    font-size: 14px;
-    font-weight: 800;
-    color: #3D2E26;
-    margin-bottom: 6px;
-  }
-  .footer-notice {
-    font-size: 11px;
-    color: #A38C82;
-    margin-top: 10px;
-  }
+        }
 
-  /* 平板/電腦 RWD (>= 768px) */
-  @media (min-width: 768px) {
-    body { padding: 40px 20px; }
-    .card-container {
-      max-width: 920px;
-      display: grid;
-      grid-template-columns: 360px 1fr;
-      gap: 32px;
-      align-items: start;
-    }
-    .profile-card { margin-bottom: 0; position: sticky; top: 20px; }
-    .page-footer { grid-column: 1 / -1; }
-  }
-</style>
+        /* 🐾 頁尾 Footer 樣式 */
+        .page-footer {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px dashed #F0E2DC;
+            text-align: center;
+            font-size: 12px;
+            color: #8C756B;
+            line-height: 1.8;
+        }
+        .footer-brand {
+            font-size: 14px;
+            font-weight: 800;
+            color: #3D2E26;
+            margin-bottom: 6px;
+        }
+        .footer-notice {
+            font-size: 11px;
+            color: #A38C82;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- 指向同目錄下的首頁 index.html -->
-<a href="./index.html" class="back-btn">← 返回首頁</a>
-    <div class="header">
-        <h1>從急診護理師到 3 寶媽的體態蛻變奇蹟</h1>
-        <p><strong>見證主角：主恩</strong></p>
-        <div class="tag-group">
-            <span class="tag">#兩胎產後共甩34kg</span>
-            <span class="tag">#經期體質調理</span>
-            <span class="tag">#不挨餓健康瘦</span>
+    <a href="./index.html" class="back-btn">← 返回首頁</a>
+
+    <!-- 🌟 見證故事 1：主恩 -->
+    <div class="story-block">
+        <div class="header">
+            <h1>從急診護理師到 3 寶媽的體態蛻變奇蹟</h1>
+            <p><strong>見證主角：主恩</strong></p>
+            <div class="tag-group">
+                <span class="tag">#兩胎產後共甩34kg</span>
+                <span class="tag">#經期體質調理</span>
+                <span class="tag">#不挨餓健康瘦</span>
+            </div>
+        </div>
+
+        <div class="photo-wrapper">
+            <img src="https://i.meee.com.tw/FsGevM1.png" alt="楊主恩體態蛻變見證照片" class="testimonial-img">
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div>兩胎產後減重</div>
+                <div class="stat-number">-34 kg</div>
+            </div>
+            <div class="stat-card">
+                <div>最新產後1.5個月</div>
+                <div class="stat-number">-8.2 kg</div>
+            </div>
+            <div class="stat-card">
+                <div>體脂肪下降</div>
+                <div class="stat-number">-5.7%</div>
+            </div>
+        </div>
+
+        <div class="story-section">
+            <h2>高壓護理職涯與體態困境</h2>
+            <p>過去身為急重症病房護理師，高壓、輪班與兼差救護車的工作型態，讓我不敢喝水也不敢按時上廁所。長期下來不僅生理期大亂，身高 155 公分的我體重一路飆升到 70 公斤。試過減肥藥、蘋果餐、極端節食等方式，卻總是陷入忽胖忽瘦的溜溜球效應。</p>
+        </div>
+
+        <div class="story-section">
+            <h2>營養力量：開啟健康懷孕與產後修復</h2>
+            <p>看見母親透過營養調理讓身體狀況獲得顯著改善後，我也開始嘗試。正確的營養不僅幫我調理好體質、順利懷上寶貝，更讓我在產後修復期不挨餓、不影響哺乳的情況下，兩胎累積減去 34 公斤！最重要的是，這是一種健康且具備體力的減重方式。</p>
         </div>
     </div>
 
-    <!-- 📸 見證照片 -->
-    <div class="photo-wrapper">
-        <img src="https://i.meee.com.tw/FsGevM1.png" alt="楊主恩體態蛻變見證照片" class="testimonial-img">
-    </div>
-
-    <div class="stats-grid">
-        <div class="stat-card">
-            <div>兩胎產後減重</div>
-            <div class="stat-number">-34 kg</div>
+    <!-- 🌟 見證故事 2：素筠（新增） -->
+    <div class="story-block">
+        <div class="header">
+            <h1>半年甩肉 30kg！全職媽咪重獲健康與時間自由</h1>
+            <p><strong>見證主角：素筠</strong></p>
+            <div class="tag-group">
+                <span class="tag">#半年成功減重30kg</span>
+                <span class="tag">#兼顧孩子早療需求</span>
+                <span class="tag">#時間自由創業</span>
+            </div>
         </div>
-        <div class="stat-card">
-            <div>最新產後1.5個月</div>
-            <div class="stat-number">-8.2 kg</div>
-        </div>
-        <div class="stat-card">
-            <div>體脂肪下降</div>
-            <div class="stat-number">-5.7%</div>
-        </div>
-    </div>
 
-    <div class="story-section">
-        <h2>高壓護理職涯與體態困境</h2>
-        <p>過去身為急重症病房護理師，高壓、輪班與兼差救護車的工作型態，讓我不敢喝水也不敢按時上廁所。長期下來不僅生理期大亂，身高 155 公分的我體重一路飆升到 70 公斤。試過減肥藥、蘋果餐、極端節食等方式，卻總是陷入忽胖忽瘦的溜溜球效應。</p>
-    </div>
+        <div class="photo-wrapper">
+            <img src="https://i.meee.com.tw/zBFMNr9.jpg" alt="素筠體態蛻變對比照片" class="testimonial-img">
+            <img src="https://i.meee.com.tw/Jh8gm5r.png" alt="素筠事業團隊與零售屋分享照片" class="testimonial-img">
+        </div>
 
-    <div class="story-section">
-        <h2>營養力量：開啟健康懷孕與產後修復</h2>
-        <p>看見母親透過營養調理讓身體狀況獲得顯著改善後，我也開始嘗試。正確的營養不僅幫我調理好體質、順利懷上寶貝，更讓我在產後修復期不挨餓、不影響哺乳的情況下，兩胎累積減去 34 公斤！最重要的是，這是一種健康且具備體力的減重方式。</p>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div>半年成功減重</div>
+                <div class="stat-number">-30 kg</div>
+            </div>
+            <div class="stat-card">
+                <div>三個月累積收入</div>
+                <div class="stat-number">15 萬+</div>
+            </div>
+            <div class="stat-card">
+                <div>帶領團隊夥伴</div>
+                <div class="stat-number">13 位+</div>
+            </div>
+        </div>
+
+        <div class="story-section">
+            <h2>產後肥胖困擾與蛻變契機</h2>
+            <p>我是素筠，一位全職家庭主婦。當初因為產後肥胖的關係，在網路上遇到了我的奶昔天使——主恩教練。在他的細心協助與指導之下，我短短半年就成功減去了 30 公斤！不僅外表煥然一新，更重要的是找回了久違的自信與身體健康。</p>
+        </div>
+
+        <div class="story-section">
+            <h2>突破現實限制，打造時間自由的家庭事業</h2>
+            <p>老公每天工作 13 小時養家非常辛苦，我很想幫忙分擔家計。加上孩子需要定期做早療、每兩天就要去上課，讓我無法選擇一般早九晚五的打卡上班。這份事業讓我能自由分配時間，一手照顧家庭與孩子早療、一手發展事業，3 個月下來累積收入已突破 15 萬元！</p>
+        </div>
     </div>
 
     <!-- 📝 體態預約諮詢表單區塊 -->
@@ -289,20 +336,17 @@
             <button type="submit" class="submit-btn" id="submitBtn">送出預約諮詢 ➔</button>
         </form>
     </div>
-  </div>
 
-  <!-- 頁尾區塊 -->
-  <footer class="page-footer">
-    <div class="footer-brand">N次方營養運動俱樂部</div>
-    <p>📍 板橋門市提供：跳床運動｜筋膜放鬆｜1對1體態管理</p>
-    <p>服務時間：週一至週六（預約制）</p>
-    <p class="footer-notice">© 2026 Roly 馨文 All Rights Reserved.</p>
-  </footer>
-
+    <!-- 🐾 頁尾區塊 Footer -->
+    <footer class="page-footer">
+        <div class="footer-brand">N次方營養運動俱樂部</div>
+        <p>📍 板橋門市提供：跳床運動｜筋膜放鬆｜1對1體態管理</p>
+        <p>服務時間：週一至週六（預約制）</p>
+        <p class="footer-notice">© 2026 Roly 馨文 All Rights Reserved.</p>
+    </footer>
 </div>
-    
+
 <script>
-  // 已經改用你故事頁面成功的正確網址
   const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxyw2VO6m0oi3EcdvYyNpJjvtgyHVYR4ZOqpyxsMksdVHKNUqGYWdxxQN_XK_m6nn9n_A/exec";
 
   document.getElementById('consultForm').addEventListener('submit', function(e) {
