@@ -218,6 +218,11 @@
             </div>
 
             <div class="form-group">
+                <label for="city">📍 居住地區 *</label>
+                <input type="text" id="city" name="city" placeholder="例如：新北市板橋區" required>
+            </div>
+
+            <div class="form-group">
                 <label for="job">💼 您目前的職業 / 身份 *</label>
                 <select id="job" name="job" required>
                     <option value="" disabled selected>請選擇您目前的身份</option>
@@ -257,7 +262,6 @@
 </div>
 
 <script>
-  // 已經改用你故事頁面成功的正確網址
   const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxyw2VO6m0oi3EcdvYyNpJjvtgyHVYR4ZOqpyxsMksdVHKNUqGYWdxxQN_XK_m6nn9n_A/exec";
 
   document.getElementById('recruitForm').addEventListener('submit', function(e) {
@@ -269,9 +273,10 @@
 
     const name = document.getElementById('name').value;
     const formData = {
-      formType: 'recruit', // 👈 傳送標記讓 Apps Script 寫入「教練招募」分頁與發送紫色 LINE 通知
+      formType: 'recruit',
       name: name,
       phone: document.getElementById('phone').value,
+      city: document.getElementById('city').value,
       job: document.getElementById('job').value,
       reason: document.getElementById('reason').value
     };
@@ -296,5 +301,6 @@
     });
   });
 </script>
+
 </body>
 </html>
