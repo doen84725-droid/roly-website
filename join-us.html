@@ -257,10 +257,9 @@
 </div>
 
 <script>
-  // 🔗 Apps Script Web App 部署網址
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwqZ-7bS7yXl01mK-E4p1l_f8pD2_O6E_S/exec';
 
-  document.getElementById('recruitForm').addEventListener('submit', function(e) {
+  document.getElementById('consultForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
     const submitBtn = document.getElementById('submitBtn');
@@ -268,27 +267,31 @@
     submitBtn.disabled = true;
 
     const formData = {
-      formType: 'recruit', // 👈 標記為招募表單，分流寫入「教練招募」分頁與發送紫色 LINE 通知
       name: document.getElementById('name').value,
       phone: document.getElementById('phone').value,
-      job: document.getElementById('job').value,
-      reason: document.getElementById('reason').value
+      city: document.getElementById('city').value,
+      goal: document.getElementById('goal').value
     };
 
+    // 💡 加上 mode: 'no-cors' 繞過瀏覽器阻擋
     fetch(SCRIPT_URL, {
       method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'text/plain'
+      },
       body: JSON.stringify(formData)
     })
-    .then(response => {
-      alert('🎉 諮詢申請已送出！我們將儘快與您聯繫安排對接！');
-      document.getElementById('recruitForm').reset();
-      submitBtn.innerText = '送出諮詢申請 ➔';
+    .then(() => {
+      alert('🎉 預約成功！馨文教練會儘快與您聯繫唷！');
+      document.getElementById('consultForm').reset();
+      submitBtn.innerText = '送出預約諮詢 ➔';
       submitBtn.disabled = false;
     })
     .catch(error => {
-      alert('申請已送出！我們已收到您的資訊。');
-      document.getElementById('recruitForm').reset();
-      submitBtn.innerText = '送出諮詢申請 ➔';
+      alert('🎉 預約成功！馨文教練會儘快與您聯繫唷！');
+      document.getElementById('consultForm').reset();
+      submitBtn.innerText = '送出預約諮詢 ➔';
       submitBtn.disabled = false;
     });
   });
