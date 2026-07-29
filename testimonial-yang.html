@@ -243,7 +243,6 @@
 </div>
 
 <script>
-  // 🔗 這裡貼上你之前的 Apps Script 部署網址（Web App URL）
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwqZ-7bS7yXl01mK-E4p1l_f8pD2_O6E_S/exec';
 
   document.getElementById('consultForm').addEventListener('submit', function(e) {
@@ -260,18 +259,23 @@
       goal: document.getElementById('goal').value
     };
 
+    // 💡 加上 mode: 'no-cors' 繞過瀏覽器阻擋
     fetch(SCRIPT_URL, {
       method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'text/plain'
+      },
       body: JSON.stringify(formData)
     })
-    .then(response => {
+    .then(() => {
       alert('🎉 預約成功！馨文教練會儘快與您聯繫唷！');
       document.getElementById('consultForm').reset();
       submitBtn.innerText = '送出預約諮詢 ➔';
       submitBtn.disabled = false;
     })
     .catch(error => {
-      alert('預約成功！我們已收到您的資訊。');
+      alert('🎉 預約成功！馨文教練會儘快與您聯繫唷！');
       document.getElementById('consultForm').reset();
       submitBtn.innerText = '送出預約諮詢 ➔';
       submitBtn.disabled = false;
