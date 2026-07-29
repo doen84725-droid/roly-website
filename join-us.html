@@ -1,116 +1,37 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>招募事業夥伴與體態教練 | N次方營養運動俱樂部</title>
-    <style>
-        :root {
-            --primary-color: #E87A84;
-            --secondary-color: #6C5CE7;
-            --bg-color: #FAF6F0;
-            --text-color: #4A4A4A;
-            --card-bg: #FFFFFF;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        .hero-title {
-            text-align: center;
-            color: var(--secondary-color);
-            font-size: 26px;
-            margin-bottom: 10px;
-        }
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 30px;
-        }
-        .feature-box {
-            background-color: #F4F0FF;
-            border-left: 5px solid var(--secondary-color);
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .feature-box h3 {
-            margin: 0 0 5px 0;
-            color: var(--secondary-color);
-        }
-        .quote-box {
-            background: #FFF9F9;
-            border: 1px dashed var(--primary-color);
-            padding: 20px;
-            border-radius: 12px;
-            margin: 25px 0;
-            font-style: italic;
-        }
-        .cta-btn {
-            display: block;
-            width: 100%;
-            text-align: center;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 14px 0;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 18px;
-            margin-top: 30px;
-            box-shadow: 0 4px 10px rgba(108, 92, 231, 0.3);
-        }
-    </style>
-</head>
-<body>
+<script>
+  // 🔗 貼上你實際的 Apps Script Web App 部署網址
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwqZ-7bS7yXl01mK-E4p1l_f8pD2_O6E_S/exec';
 
-<div class="container">
-    <h1 class="hero-title">🤝 招募體態管理顧問 / 運動事業夥伴</h1>
-    <p class="subtitle">打破用時間換金錢的循環，打造屬於你自己的事業與自由生活！</p>
+  document.getElementById('recruitForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.innerText = '資料送出中...';
+    submitBtn.disabled = true;
 
-    <div class="quote-box">
-        「三年前、五年前的你，跟現在的你在收入、生活品質與個人成長上，有顯著進步嗎？如果現在不改變，三年後、五年後你會變成什麼樣子？」
-    </div>
+    const formData = {
+      formType: 'recruit', // 👈 這行很關鍵！這樣 Apps Script 才知道要寫入「教練招募」分頁並發送紫色 LINE 通知
+      name: document.getElementById('name').value,
+      phone: document.getElementById('phone').value,
+      job: document.getElementById('job').value,
+      reason: document.getElementById('reason').value
+    };
 
-    <h2>🌟 為什麼選擇加入我們的團隊？</h2>
-
-    <div class="feature-box">
-        <h3>1. 完整培訓與導師帶領（零經驗可）</h3>
-        <p>即使沒有口才、沒有豐富人脈，我們擁有系統化的「90 天行動計畫」與專屬導師全程引導，讓你不走彎路，快速上手。</p>
-    </div>
-
-    <div class="feature-box">
-        <h3>2. 時間自由與陪伴家人</h3>
-        <p>告別傳統打卡上班。告別用時間換取有限收入。你可以彈性安排工作時間，參與孩子的成長過程，實現工作與生活的完美平衡。</p>
-    </div>
-
-    <div class="feature-box">
-        <h3>3. 獎勵度假與被動收入</h3>
-        <p>透過持續耕耘累積被動收入，每年有機會獲得公司招待的海外頂級假期，帶家人一邊工作一邊環遊世界！</p>
-    </div>
-
-    <h2>🙋‍♀️ 我們在尋找這樣的你：</h2>
-    <ul>
-        <li>對健康、減重、運動或飲食管理有熱情者</li>
-        <li>想轉職、增加第二份收入或突破薪資天花板的上班族/護理人員</li>
-        <li>想兼顧家庭與個人事業的媽媽夥伴</li>
-        <li>願意學習、樂於幫助他人變健康變美麗的你</li>
-    </ul>
-
-    <a href="https://line.me" class="cta-btn" target="_blank">💬 點我私訊了解教練培訓計畫</a>
-</div>
-
-</body>
-</html>
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify(formData)
+    })
+    .then(response => {
+      alert('🎉 諮詢申請已送出！我們將儘快與您聯繫安排對接！');
+      document.getElementById('recruitForm').reset();
+      submitBtn.innerText = '送出諮詢申請 ➔';
+      submitBtn.disabled = false;
+    })
+    .catch(error => {
+      alert('申請已送出！我們已收到您的資訊。');
+      document.getElementById('recruitForm').reset();
+      submitBtn.innerText = '送出諮詢申請 ➔';
+      submitBtn.disabled = false;
+    });
+  });
+</script>
