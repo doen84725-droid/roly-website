@@ -257,45 +257,44 @@
 </div>
 
 <script>
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwqZ-7bS7yXl01mK-E4p1l_f8pD2_O6E_S/exec';
+  // 已經改用你故事頁面成功的正確網址
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxyw2VO6m0oi3EcdvYyNpJjvtgyHVYR4ZOqpyxsMksdVHKNUqGYWdxxQN_XK_m6nn9n_A/exec";
 
-  document.getElementById('consultForm').addEventListener('submit', function(e) {
+  document.getElementById('recruitForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
     const submitBtn = document.getElementById('submitBtn');
     submitBtn.innerText = '資料送出中...';
     submitBtn.disabled = true;
 
+    const name = document.getElementById('name').value;
     const formData = {
-      name: document.getElementById('name').value,
+      formType: 'recruit', // 👈 傳送標記讓 Apps Script 寫入「教練招募」分頁與發送紫色 LINE 通知
+      name: name,
       phone: document.getElementById('phone').value,
-      city: document.getElementById('city').value,
-      goal: document.getElementById('goal').value
+      job: document.getElementById('job').value,
+      reason: document.getElementById('reason').value
     };
 
-    // 💡 加上 mode: 'no-cors' 繞過瀏覽器阻擋
-    fetch(SCRIPT_URL, {
+    fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
-      headers: {
-        'Content-Type': 'text/plain'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
     })
     .then(() => {
-      alert('🎉 預約成功！馨文教練會儘快與您聯繫唷！');
-      document.getElementById('consultForm').reset();
-      submitBtn.innerText = '送出預約諮詢 ➔';
+      alert(`🎉 感謝 ${name} 的申請！我們將儘快與您聯繫安排對接！`);
+      document.getElementById('recruitForm').reset();
+      submitBtn.innerText = '送出諮詢申請 ➔';
       submitBtn.disabled = false;
     })
     .catch(error => {
-      alert('🎉 預約成功！馨文教練會儘快與您聯繫唷！');
-      document.getElementById('consultForm').reset();
-      submitBtn.innerText = '送出預約諮詢 ➔';
+      alert(`🎉 感謝 ${name} 的申請！我們將儘快與您聯繫安排對接！`);
+      document.getElementById('recruitForm').reset();
+      submitBtn.innerText = '送出諮詢申請 ➔';
       submitBtn.disabled = false;
     });
   });
 </script>
-
 </body>
 </html>
