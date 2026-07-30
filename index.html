@@ -292,6 +292,12 @@
     box-shadow: 0 4px 12px rgba(255, 53, 71, 0.4);
   }
 
+  /* 3. ✨ 超值熱門 (暖橘色標籤) */
+  .badge-orange {
+    background: linear-gradient(135deg, #FF9800, #F57C00);
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4);
+  }
+
   .service-header {
     display: flex;
     justify-content: space-between;
@@ -299,7 +305,6 @@
     margin-bottom: 8px;
   }
   
-  /* 💡 放大卡片標題，增強層次主導性 */
   .service-title { 
     font-size: 18px; 
     font-weight: 800; 
@@ -308,6 +313,17 @@
   }
   .service-price { font-size: 16px; font-weight: 800; color: #E87A84; }
   .old-price { font-size: 12px; color: #B39B91; text-decoration: line-through; margin-right: 4px; }
+
+  /* 價格優勢標題/小字 */
+  .price-highlight-text {
+    font-size: 12px;
+    font-weight: 800;
+    color: #E87A84;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
 
   .service-desc {
     font-size: 13px;
@@ -528,11 +544,13 @@
 
       <!-- 卡片 2：筋膜放鬆 -->
       <div class="service-card">
+        <span class="badge badge-orange">✨ 超值熱門</span>
         <div class="service-header">
           <div class="service-title">專業筋膜放鬆體驗</div>
           <div class="service-price"><span class="old-price">$750</span>$399</div>
         </div>
-        <div class="service-desc">針對運動後緊繃與肌筋膜張力進行深層放鬆，恢復肌肉彈性，提升運動表現。</div>
+        <div class="price-highlight-text">🔥 甜甜體驗價！小資紓壓首選</div>
+        <div class="service-desc">針對運動後緊繃與肌筋膜張力進行深層放鬆，徒手搭配專業筋膜刀，恢復肌肉彈性，提升運動表現。</div>
         <div class="btn-group">
         <a href="./fascia.html" class="btn-more">了解更多</a>
           <a href="https://line.me/R/oaMessage/@604hrrlc/?我是透過馨文的網站來的%20我想體驗專業筋膜放鬆" target="_blank" rel="noopener noreferrer" class="buy-btn">預約體驗</a>
