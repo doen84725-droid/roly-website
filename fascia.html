@@ -165,14 +165,7 @@
     margin: 0;
   }
 
-  /* 🖼️ 圖文展示展示區塊 */
-  .image-showcase {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 20px;
-  }
-  
+  /* 🖼️ 圖文展示區塊 (統一圖片比例) */
   .showcase-card {
     background: #FFFFFF;
     border-radius: 18px;
@@ -180,11 +173,12 @@
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 15px rgba(0,0,0,0.04);
   }
+  /* 💡 自動裁切維持 16:9 比例，解決圖片長寬比例不一的問題 */
   .showcase-card img {
     width: 100%;
-    height: auto;
-    display: block;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
+    display: block;
   }
   .showcase-info {
     padding: 16px 20px;
@@ -199,13 +193,6 @@
   .showcase-info p {
     font-size: 13px;
     color: var(--text-sub);
-  }
-
-  /* 雙圖並排展示（用於對比/流程） */
-  .image-grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px;
   }
 
   /* 底部行動區域 */
@@ -258,12 +245,6 @@
   }
   .footer-brand { font-size: 14px; font-weight: 800; color: #3D2E26; margin-bottom: 6px; }
   .footer-notice { font-size: 11px; color: #A38C82; margin-top: 10px; }
-
-  @media (max-width: 500px) {
-    .image-grid-2 {
-      grid-template-columns: 1fr;
-    }
-  }
 </style>
 </head>
 <body>
@@ -275,13 +256,13 @@
     <h1>專業深層筋膜放鬆</h1>
     <div class="tag-group">
       <span class="tag">#擺脫肩頸緊繃</span>
-      <span class="tag">#提升肌肉彈性</span>
+      <span class="tag">#專業筋膜刀工具</span>
       <span class="tag">#改善體態姿勢</span>
     </div>
   </div>
 
   <div class="intro-text">
-    👋 長期低頭看手機、久坐打字，或是運動後乳酸堆積，都會讓包覆肌肉的「肌筋膜」變得緊繃黏連！透過專人的深層筋膜放鬆，能精準鬆開深層緊繃痛點，恢復肌肉彈性與關節活動度，讓身體重回輕鬆輕盈的狀態。
+    👋 長期低頭看手機、久坐打字，或是運動後乳酸堆積，都會讓包覆肌肉的「肌筋膜」變得緊繃黏連！透過專業手法搭配筋膜刀輔助，能深層鬆開黏連痛點，恢復肌肉彈性與關節活動度，讓身體重回輕鬆輕盈的狀態。
   </div>
 
   <!-- 🌟 體驗流程圖文解說 -->
@@ -315,32 +296,23 @@
     </div>
   </div>
 
-  <!-- 📸 真實案例與適合族群圖卡雙欄展現 -->
-  <div class="section-title">🔥 真實學員體驗與適合對象</div>
-  <div class="image-grid-2">
-    <div class="showcase-card">
-      <img src="https://i.meee.com.tw/UeWaZ2K.jpg" alt="體驗成果對比圖" loading="lazy">
-      <div class="showcase-info">
-        <h4>即刻有感體態舒緩</h4>
-        <p>放鬆深層張力，幫助緊繃肩頸與背部恢復自然角度。</p>
-      </div>
-    </div>
-    <div class="showcase-card">
-      <img src="https://i.meee.com.tw/KsbJh4L.png" alt="適合族群說明圖" loading="lazy">
-      <div class="showcase-info">
-        <h4>你也是這些族群嗎？</h4>
-        <p>久坐上班族、運動愛好者、姿勢不良或經常覺得身體僵硬者都很適合！</p>
-      </div>
+  <!-- 📸 適合族群區塊 -->
+  <div class="section-title">🔥 適合對象與對象評估</div>
+  <div class="showcase-card">
+    <img src="https://i.meee.com.tw/KsbJh4L.png" alt="適合族群說明圖" loading="lazy">
+    <div class="showcase-info">
+      <h4>你也是這些族群嗎？</h4>
+      <p>久坐上班族、運動愛好者、姿勢不良或經常覺得身體僵硬者都很適合！</p>
     </div>
   </div>
 
-  <!-- 🎯 專業手法展現圖片 -->
-  <div class="section-title" style="margin-top: 30px;">🌸 專屬客製化手法放鬆</div>
+  <!-- 🎯 專業手法與筋膜刀搭配圖片 -->
+  <div class="section-title" style="margin-top: 30px;">🌸 專屬客製手法與專業筋膜刀搭配</div>
   <div class="showcase-card">
-    <img src="https://i.meee.com.tw/aQYNm8O.png" alt="筋膜放鬆手法與環境展示" loading="lazy">
+    <img src="https://i.meee.com.tw/c8GCCWz.png" alt="專業手法搭配筋膜刀放鬆" loading="lazy">
     <div class="showcase-info">
-      <h4>溫馨私密環境 & 專業手法</h4>
-      <p>告別傳統推拿的劇烈疼痛，以順應肌理的適當按壓，深層釋放緊繃。</p>
+      <h4>徒手切入 ＋ 專業筋膜刀精準深層理筋</h4>
+      <p>告別傳統推拿的劇烈疼痛！運用順應肌理的徒手按壓與專用筋膜刀，深層鬆開頑固黏連，恢復肌筋膜彈性。</p>
     </div>
   </div>
 
