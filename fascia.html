@@ -165,18 +165,19 @@
     margin: 0;
   }
 
-  /* 🖼️ 圖文展示區塊 (統一圖片比例) */
+  /* 🖼️ 圖文展示區塊 (統一圖片 4:3 比例) */
   .showcase-card {
     background: #FFFFFF;
     border-radius: 18px;
     overflow: hidden;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    margin-bottom: 24px;
   }
-  /* 💡 自動裁切維持 16:9 比例，解決圖片長寬比例不一的問題 */
+  /* 💡 改為 4:3 比例 */
   .showcase-card img {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
     display: block;
   }
@@ -277,7 +278,7 @@
 
   <!-- 🌿 放鬆效益特色區 -->
   <div class="section-title">💡 為什麼你需要筋膜放鬆？</div>
-  <div class="feature-grid">
+  <div class="feature-grid" style="margin-bottom: 24px;">
     <div class="feature-card">
       <h3>💆‍♀️ 釋放積壓痠痛</h3>
       <p>針對久坐族最常發生的肩頸僵硬、腰痠背痛，進行精準的點對點深層釋放。</p>
@@ -306,13 +307,22 @@
     </div>
   </div>
 
-  <!-- 🎯 專業手法與筋膜刀搭配圖片 -->
-  <div class="section-title" style="margin-top: 30px;">🌸 專屬客製手法與專業筋膜刀搭配</div>
+  <!-- 🎯 專業手法與筋膜刀搭配圖片 1 -->
+  <div class="section-title">🌸 專屬客製手法與專業筋膜刀搭配</div>
   <div class="showcase-card">
     <img src="https://i.meee.com.tw/c8GCCWz.png" alt="專業手法搭配筋膜刀放鬆" loading="lazy">
     <div class="showcase-info">
       <h4>徒手切入 ＋ 專業筋膜刀精準深層理筋</h4>
       <p>告別傳統推拿的劇烈疼痛！運用順應肌理的徒手按壓與專用筋膜刀，深層鬆開頑固黏連，恢復肌筋膜彈性。</p>
+    </div>
+  </div>
+
+  <!-- 🎯 專業手法與環境展示圖片 2 (aQYNm8O.png) -->
+  <div class="showcase-card">
+    <img src="https://i.meee.com.tw/aQYNm8O.png" alt="溫馨環境與專業放鬆體驗" loading="lazy">
+    <div class="showcase-info">
+      <h4>溫馨私密環境 & 質感體驗</h4>
+      <p>在舒適放鬆的空間裡，享受專屬的 1 對 1 身心深層舒壓放鬆行程。</p>
     </div>
   </div>
 
