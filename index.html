@@ -8,6 +8,11 @@
 <!-- 🌸 網站專屬小圖示 (Favicon) -->
 <link rel="icon" type="image/png" href="https://i.meee.com.tw/fwAEuJj.png">
 
+<!-- ✒️ 導入高質感優雅字型 (Cinzel & 思源宋體) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-K6GDWY53DX"></script>
 <script>
@@ -28,9 +33,79 @@
   /* 主體背景：明亮微粉暖白漸層 */
   body {
     background: linear-gradient(180deg, #FDFAF8 0%, #F8F3EF 100%);
-    padding: 24px 16px;
+    padding-top: 72px; /* 留出頂部 Fixed Header 的空間 */
+    padding-bottom: 24px;
+    padding-left: 16px;
+    padding-right: 16px;
     color: #403028;
     min-height: 100vh;
+  }
+
+  /* 🌸 頁首 Header 樣式 */
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    background: rgba(253, 250, 248, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #F0E2DC;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    box-shadow: 0 2px 14px rgba(224, 136, 128, 0.08);
+  }
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+  .header-logo-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF8E88, #E87A84);
+    display: inline-block;
+  }
+  
+  /* 精緻典雅字型樣式 */
+  .brand-title-en {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #2D201A;
+    letter-spacing: 0.8px;
+    line-height: 1.1;
+  }
+  .brand-title-zh {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: #9C7268;
+    letter-spacing: 1px;
+    margin-top: 1px;
+  }
+
+  .header-action-btn {
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(135deg, #FF8E88, #E87A84);
+    padding: 6px 14px;
+    border-radius: 18px;
+    text-decoration: none;
+    box-shadow: 0 3px 10px rgba(232, 122, 132, 0.3);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  .header-action-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(232, 122, 132, 0.4);
   }
 
   /* 容器與淡入動畫 */
@@ -327,7 +402,10 @@
 
   /* 平板/電腦 RWD (>= 768px) */
   @media (min-width: 768px) {
-    body { padding: 40px 20px; }
+    body { padding-top: 84px; padding-left: 20px; padding-right: 20px; }
+    .site-header { padding: 0 40px; height: 68px; }
+    .brand-title-en { font-size: 15px; }
+    .brand-title-zh { font-size: 12px; }
     .card-container {
       max-width: 920px;
       display: grid;
@@ -335,12 +413,26 @@
       gap: 32px;
       align-items: start;
     }
-    .profile-card { margin-bottom: 0; position: sticky; top: 20px; }
+    .profile-card { margin-bottom: 0; position: sticky; top: 88px; }
     .page-footer { grid-column: 1 / -1; }
   }
 </style>
 </head>
 <body>
+
+<!-- 🌸 固定頁首 (Fixed Header) -->
+<header class="site-header">
+  <a href="./index.html" class="header-brand">
+    <span class="header-logo-dot"></span>
+    <div>
+      <div class="brand-title-en">Roly's Healthy Life</div>
+      <div class="brand-title-zh">理想健康生活</div>
+    </div>
+  </a>
+  <a href="https://line.me/R/oaMessage/@604hrrlc/?我是透過馨文的網站來的%20我想諮詢" target="_blank" rel="noopener noreferrer" class="header-action-btn">
+    預約諮詢
+  </a>
+</header>
 
 <div class="card-container">
   <!-- 左側/上方：個人電子名片區塊 -->
