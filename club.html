@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>N次方運動營養俱樂部 | 官方社群門戶</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Cormorant Garamond & Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- QRCode.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                    },
+                    colors: {
+                        morandi: {
+                            bg: '#F8F4EE',          /* 燕麥暖奶茶色背景 */
+                            card: '#FFFFFF',        /* 純白卡片底色 */
+                            rose: '#B86A61',        /* 莫蘭迪乾燥玫瑰粉 */
+                            roselight: '#EBDCD5',   /* 淺粉棕 */
+                            clay: '#8C4D3E',        /* 莫蘭迪陶土棕 */
+                            dark: '#3A2E2B',        /* 深棕黑內文 */
+                            muted: '#7A6B65',       /* 霧棕灰說明文字 */
+                            border: '#E2D6CB',      /* 溫暖內邊框 */
+                        }
+                    },
+                    boxShadow: {
+                        'btn-google': '0 8px 20px -2px rgba(234, 67, 53, 0.38)',
+                        'btn-ig': '0 8px 20px -2px rgba(225, 48, 108, 0.38)',
+                        'btn-fb': '0 8px 20px -2px rgba(24, 119, 242, 0.38)',
+                        'btn-line': '0 8px 20px -2px rgba(6, 199, 85, 0.38)',
+                        'soft-card': '0 10px 30px -5px rgba(140, 77, 62, 0.12)',
+                        'badge-pop': '0 2px 6px rgba(0, 0, 0, 0.18)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #F8F4EE;
+            color: #3A2E2B;
+            background-image: 
+                radial-gradient(circle at 12% 12%, rgba(235, 220, 213, 0.7) 0%, transparent 40%),
+                radial-gradient(circle at 88% 88%, rgba(184, 106, 97, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(248, 244, 238, 0.8) 0%, transparent 60%);
+            background-attachment: fixed;
+        }
+
+        .reed-pattern {
+            background-image: radial-gradient(#B86A61 0.8px, transparent 0.8px);
+            background-size: 14px 14px;
+            opacity: 0.12;
+        }
+
+        /* 增強按鈕文字陰影 */
+        .text-shadow-md {
+            text-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.4);
+        }
+        .text-shadow-sm {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-brand-transform {
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.2s ease;
+        }
+        .btn-brand-transform:active {
+            transform: scale(0.97);
+        }
+        .btn-brand-transform:hover {
+            filter: brightness(1.04);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between items-center px-4 py-6 antialiased selection:bg-morandi-roselight selection:text-morandi-dark">
+
+    <!-- Top Navigation Tools -->
+    <header class="w-full max-w-md flex justify-between items-center pt-2 pb-1 px-1 z-20">
+        <button onclick="openConfigModal()" class="text-xs text-morandi-muted hover:text-morandi-dark bg-white/90 hover:bg-white px-3 py-1.5 rounded-full border border-morandi-border flex items-center gap-1.5 shadow-sm transition">
+            <i class="fa-solid fa-sliders text-morandi-rose"></i>
+            <span class="font-medium">設定連結</span>
+        </button>
+
+        <button onclick="openShareModal()" class="text-xs text-morandi-muted hover:text-morandi-dark bg-white/90 hover:bg-white px-3 py-1.5 rounded-full border border-morandi-border flex items-center gap-1.5 shadow-sm transition">
+            <i class="fa-solid fa-qrcode text-morandi-clay"></i>
+            <span class="font-medium">分享卡片</span>
+        </button>
+    </header>
+
+    <!-- Main Mobile Container -->
+    <main class="w-full max-w-md flex flex-col items-center gap-5 my-auto py-2 z-10 overflow-visible">
+
+        <!-- BRAND PROFILE HEADER (SAFE MARGIN TOP) -->
+        <section class="text-center w-full flex flex-col items-center pt-2">
+            
+            <!-- Avatar Badge with Protection Padding -->
+            <div class="relative mb-3.5">
+                <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-white p-1 shadow-soft-card flex items-center justify-center border-2 border-morandi-roselight relative overflow-hidden">
+                    <img src="https://i.meee.com.tw/J1zv02p.png" alt="N次方運動營養俱樂部 Logo" class="w-full h-full object-cover rounded-full" onerror="this.onerror=null; this.src='https://placehold.co/120x120/B86A61/ffffff?text=N%E2%81%BF';">
+                </div>
+                <!-- Mini Tag -->
+                <div class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 bg-morandi-clay text-white text-[10px] font-bold tracking-wider px-3 py-0.5 rounded-full shadow-md whitespace-nowrap z-10">
+                    運動營養俱樂部
+                </div>
+            </div>
+
+            <!-- Title & Slogan -->
+            <h1 class="text-xl sm:text-2xl font-black tracking-tight text-morandi-dark mt-1 flex items-center justify-center gap-2">
+                N次方運動營養俱樂部
+            </h1>
+            <p class="text-[11px] sm:text-xs text-morandi-muted font-medium mt-1.5 tracking-wider whitespace-nowrap">
+                🌾 運動補給 • 輕盈體態 • 清新日常 • 質感陪伴
+            </p>
+
+            <!-- Prominent Rating Pill -->
+            <div class="flex items-center gap-2 mt-2.5 bg-white border border-morandi-border px-3.5 py-1 rounded-full text-xs text-morandi-muted shadow-sm">
+                <div class="text-amber-400 text-xs tracking-wider flex items-center gap-0.5">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <span class="font-black text-morandi-dark text-sm">5.0</span>
+                <span class="text-morandi-border">|</span>
+                <span class="text-morandi-clay text-[11px] font-bold whitespace-nowrap">網美極力推薦</span>
+            </div>
+        </section>
+
+
+        <!-- HIGH-SATURATION BRAND BUTTONS (STRICT FLEX LAYOUT) -->
+        <section class="w-full flex flex-col gap-3.5 mt-1">
+
+            <!-- 1. Google Review Button -->
+            <a id="btnGoogle" href="https://search.google.com/local/writereview?placeid=ChIJNaHMKYypQjQRDJt_GxDPKd0" target="_blank" rel="noopener noreferrer" 
+               class="bg-gradient-to-r from-[#EA4335] via-[#FBBC05] to-[#34A853] text-white p-3.5 rounded-2xl flex items-center justify-between gap-3 group btn-brand-transform shadow-btn-google border border-white/30">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/25 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shrink-0 shadow-inner group-hover:scale-105 transition">
+                    <i class="fa-brands fa-google text-xl sm:text-2xl text-shadow-md"></i>
+                </div>
+                <div class="flex-1 min-w-0 text-left">
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                        <span class="text-sm sm:text-base font-black tracking-wide text-white text-shadow-md whitespace-nowrap">給予 Google 5 星好評</span>
+                        <span class="bg-amber-300 text-slate-950 font-black text-[10px] px-2 py-0.5 rounded-full shadow-badge-pop border border-white flex items-center gap-0.5 whitespace-nowrap shrink-0">
+                            <i class="fa-solid fa-star text-amber-700 text-[9px]"></i> 5★ 評價
+                        </span>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-white/95 mt-0.5 font-bold text-shadow-sm truncate">直達 Google 地標留下 5 星鼓勵與評語</p>
+                </div>
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/25 flex items-center justify-center shrink-0 group-hover:bg-white group-hover:text-[#EA4335] transition shadow-md border border-white/30">
+                    <i class="fa-solid fa-arrow-right text-xs sm:text-sm text-shadow-sm"></i>
+                </div>
+            </a>
+
+            <!-- 2. Instagram Button -->
+            <a id="btnIG" href="https://instagram.com/_u/nthpower39" target="_blank" rel="noopener noreferrer" 
+               class="bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#FCB045] text-white p-3.5 rounded-2xl flex items-center justify-between gap-3 group btn-brand-transform shadow-btn-ig border border-white/30">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/25 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shrink-0 shadow-inner group-hover:scale-105 transition">
+                    <i class="fa-brands fa-instagram text-xl sm:text-2xl text-shadow-md"></i>
+                </div>
+                <div class="flex-1 min-w-0 text-left">
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                        <span class="text-sm sm:text-base font-black tracking-wide text-white text-shadow-md whitespace-nowrap">追蹤 IG 帳號</span>
+                        <span class="bg-white text-[#E1306C] font-black text-[10px] px-2 py-0.5 rounded-full shadow-badge-pop border border-white flex items-center gap-0.5 whitespace-nowrap shrink-0">
+                            <i class="fa-solid fa-hashtag text-[9px]"></i> 限動 Tag
+                        </span>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-white/95 mt-0.5 font-bold text-shadow-sm truncate">標記我們 @_u/nthpower39 記錄運動日常</p>
+                </div>
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/25 flex items-center justify-center shrink-0 group-hover:bg-white group-hover:text-[#E1306C] transition shadow-md border border-white/30">
+                    <i class="fa-solid fa-arrow-right text-xs sm:text-sm text-shadow-sm"></i>
+                </div>
+            </a>
+
+            <!-- 3. Facebook Button -->
+            <a id="btnFB" href="https://www.facebook.com/profile.php?id=61558600604595" target="_blank" rel="noopener noreferrer" 
+               class="bg-gradient-to-r from-[#1877F2] to-[#0B60D4] text-white p-3.5 rounded-2xl flex items-center justify-between gap-3 group btn-brand-transform shadow-btn-fb border border-white/30">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/25 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shrink-0 shadow-inner group-hover:scale-105 transition">
+                    <i class="fa-brands fa-facebook-f text-lg sm:text-xl text-shadow-md"></i>
+                </div>
+                <div class="flex-1 min-w-0 text-left">
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                        <span class="text-sm sm:text-base font-black tracking-wide text-white text-shadow-md whitespace-nowrap">追蹤 FB 粉絲專頁</span>
+                        <span class="bg-white/90 text-[#1877F2] font-black text-[10px] px-2 py-0.5 rounded-full shadow-badge-pop border border-white whitespace-nowrap shrink-0">
+                            官方粉專
+                        </span>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-white/95 mt-0.5 font-bold text-shadow-sm truncate">打卡地標與掌握最新社區優惠活動</p>
+                </div>
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/25 flex items-center justify-center shrink-0 group-hover:bg-white group-hover:text-[#1877F2] transition shadow-md border border-white/30">
+                    <i class="fa-solid fa-arrow-right text-xs sm:text-sm text-shadow-sm"></i>
+                </div>
+            </a>
+
+            <!-- 4. LINE Official Button -->
+            <a id="btnLine" href="https://lin.ee/Szx1ulo" target="_blank" rel="noopener noreferrer" 
+               class="bg-gradient-to-r from-[#06C755] to-[#00B900] text-white p-3.5 rounded-2xl flex items-center justify-between gap-3 group btn-brand-transform shadow-btn-line border border-white/30">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white/25 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shrink-0 shadow-inner group-hover:scale-105 transition">
+                    <i class="fa-brands fa-line text-2xl sm:text-3xl text-shadow-md"></i>
+                </div>
+                <div class="flex-1 min-w-0 text-left">
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                        <span class="text-sm sm:text-base font-black tracking-wide text-white text-shadow-md whitespace-nowrap">加入 LINE 官方帳號</span>
+                        <span class="bg-white text-[#06C755] font-black text-[10px] px-2 py-0.5 rounded-full shadow-badge-pop border border-white flex items-center gap-0.5 whitespace-nowrap shrink-0">
+                            <i class="fa-solid fa-user-check text-[9px]"></i> 專人諮詢
+                        </span>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-white/95 mt-0.5 font-bold text-shadow-sm truncate">一對一預約體態評估、看課表與領券</p>
+                </div>
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/25 flex items-center justify-center shrink-0 group-hover:bg-white group-hover:text-[#06C755] transition shadow-md border border-white/30">
+                    <i class="fa-solid fa-arrow-right text-xs sm:text-sm text-shadow-sm"></i>
+                </div>
+            </a>
+
+        </section>
+
+
+        <!-- PROMOTION REWARD CARD (CLEAN MORANDI STYLE, NO BUTTON) -->
+        <section class="w-full mt-1">
+            <div class="relative overflow-hidden rounded-3xl bg-white border-2 border-morandi-roselight p-4 sm:p-5 shadow-soft-card">
+                
+                <!-- Floral Header -->
+                <div class="flex items-center justify-between mb-2">
+                    <span class="inline-flex items-center gap-1.5 bg-gradient-to-r from-morandi-rose to-morandi-clay text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm whitespace-nowrap">
+                        <i class="fa-solid fa-gift"></i> 現場獨家福利
+                    </span>
+                    <span class="text-xs text-morandi-clay font-serif italic font-bold whitespace-nowrap">
+                        Special Gift
+                    </span>
+                </div>
+
+                <!-- Title & Description -->
+                <h3 class="text-base sm:text-lg font-black text-morandi-dark tracking-wide leading-snug mt-1">
+                    打卡 / 五星好評 送專屬福利小禮
+                </h3>
+                
+                <p class="text-xs text-morandi-muted mt-1.5 leading-relaxed font-medium">
+                    感謝親愛的你來到 N次方！凡於現場完成 FB/IG 打卡或 Google 五星評價，即可獲得 <strong class="text-morandi-clay font-extrabold">【專屬特調好禮】</strong> 乙份！
+                </p>
+
+                <!-- 3 Easy Steps Flow -->
+                <div class="grid grid-cols-3 gap-1.5 sm:gap-2 mt-3.5 text-center">
+                    <div class="bg-morandi-bg border border-morandi-border/80 rounded-2xl p-2 sm:p-2.5 flex flex-col items-center justify-center">
+                        <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-morandi-rose text-white font-serif font-bold text-xs flex items-center justify-center mb-1 shadow-sm">1</span>
+                        <span class="text-[10px] sm:text-[11px] font-bold text-morandi-dark leading-tight">點選上方按鈕</span>
+                        <span class="text-[9px] text-morandi-muted mt-0.5 leading-none">開啟社群頁面</span>
+                    </div>
+
+                    <div class="bg-morandi-bg border border-morandi-border/80 rounded-2xl p-2 sm:p-2.5 flex flex-col items-center justify-center">
+                        <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-morandi-rose text-white font-serif font-bold text-xs flex items-center justify-center mb-1 shadow-sm">2</span>
+                        <span class="text-[10px] sm:text-[11px] font-bold text-morandi-dark leading-tight">打卡或寫好評</span>
+                        <span class="text-[9px] text-morandi-muted mt-0.5 leading-none">標記我們或5星</span>
+                    </div>
+
+                    <div class="bg-morandi-bg border border-morandi-border/80 rounded-2xl p-2 sm:p-2.5 flex flex-col items-center justify-center">
+                        <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-morandi-rose text-white font-serif font-bold text-xs flex items-center justify-center mb-1 shadow-sm">3</span>
+                        <span class="text-[10px] sm:text-[11px] font-bold text-morandi-dark leading-tight">出示手機畫面</span>
+                        <span class="text-[9px] text-morandi-muted mt-0.5 leading-none">現場交給教練</span>
+                    </div>
+                </div>
+
+                <!-- Footer Direct Hint -->
+                <div class="mt-3.5 pt-2.5 border-t border-morandi-border/60 text-center flex items-center justify-center gap-1.5 text-xs text-morandi-clay font-bold bg-morandi-roselight/40 py-2 rounded-xl">
+                    <i class="fa-solid fa-heart text-morandi-rose text-[11px]"></i>
+                    <span>完成後直接將手機畫面出示給現場教練即可領取！</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full max-w-md text-center py-3 text-morandi-muted text-xs z-10 flex flex-col items-center gap-1">
+        <p class="font-bold text-morandi-dark text-xs">N次方運動營養俱樂部 • Nⁿ Sports & Nutrition Club</p>
+        <p class="text-[10px] text-morandi-muted">網美清新風門戶 • 打卡/五星好評送專屬福利小禮</p>
+    </footer>
+
+
+    <!-- MODAL 1: Share & QR Code Modal -->
+    <div id="shareModal" class="fixed inset-0 bg-morandi-dark/50 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white border border-morandi-border rounded-3xl max-w-sm w-full p-6 shadow-soft-card relative text-center">
+            <button onclick="closeShareModal()" class="absolute top-4 right-4 text-morandi-muted hover:text-morandi-dark text-lg w-8 h-8 rounded-full bg-morandi-bg flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 class="text-base font-bold text-morandi-dark flex items-center justify-center gap-2 mb-1">
+                <i class="fa-solid fa-qrcode text-morandi-rose"></i> 掃碼分享網頁
+            </h3>
+            <p class="text-xs text-morandi-muted mb-4">開啟手機相機掃描 QR Code 即可進入此頁面</p>
+
+            <div class="bg-morandi-bg p-4 rounded-2xl inline-block border border-morandi-border mb-4">
+                <div id="qrcodeCanvas"></div>
+            </div>
+
+            <button onclick="copyCurrentPageUrl()" class="w-full bg-morandi-rose hover:bg-morandi-clay text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-md">
+                <i class="fa-solid fa-link text-xs"></i>
+                <span id="copyLinkBtnText">複製此網頁連結</span>
+            </button>
+        </div>
+    </div>
+
+
+    <!-- MODAL 2: Configure Links Modal (Store Owner Tool) -->
+    <div id="configModal" class="fixed inset-0 bg-morandi-dark/50 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white border border-morandi-border rounded-3xl max-w-sm w-full p-6 shadow-soft-card relative">
+            <button onclick="closeConfigModal()" class="absolute top-4 right-4 text-morandi-muted hover:text-morandi-dark text-lg w-8 h-8 rounded-full bg-morandi-bg flex items-center justify-center transition">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 class="text-base font-bold text-morandi-dark flex items-center gap-2 mb-1">
+                <i class="fa-solid fa-sliders text-morandi-rose"></i> 自訂社群連結
+            </h3>
+            <p class="text-xs text-morandi-muted mb-4">請將店家的實際網址貼在下方，儲存後即可作用：</p>
+
+            <div class="space-y-3 text-left text-xs">
+                <div>
+                    <label class="block font-bold text-morandi-dark mb-1">Google 商家地標網址 (評論頁)</label>
+                    <input type="text" id="cfgGoogle" class="w-full bg-morandi-bg border border-morandi-border rounded-xl p-2.5 text-morandi-dark focus:outline-none focus:border-morandi-rose font-medium" placeholder="https://maps.google.com/...">
+                </div>
+
+                <div>
+                    <label class="block font-bold text-morandi-dark mb-1">Instagram 官方帳號網址</label>
+                    <input type="text" id="cfgIG" class="w-full bg-morandi-bg border border-morandi-border rounded-xl p-2.5 text-morandi-dark focus:outline-none focus:border-morandi-rose font-medium" placeholder="https://instagram.com/...">
+                </div>
+
+                <div>
+                    <label class="block font-bold text-morandi-dark mb-1">Facebook 粉絲專頁網址</label>
+                    <input type="text" id="cfgFB" class="w-full bg-morandi-bg border border-morandi-border rounded-xl p-2.5 text-morandi-dark focus:outline-none focus:border-morandi-rose font-medium" placeholder="https://facebook.com/...">
+                </div>
+
+                <div>
+                    <label class="block font-bold text-morandi-dark mb-1">LINE 官方帳號網址</label>
+                    <input type="text" id="cfgLine" class="w-full bg-morandi-bg border border-morandi-border rounded-xl p-2.5 text-morandi-dark focus:outline-none focus:border-morandi-rose font-medium" placeholder="https://line.me/R/ti/p/...">
+                </div>
+            </div>
+
+            <div class="mt-5 flex gap-2">
+                <button onclick="saveConfigLinks()" class="flex-1 bg-morandi-rose hover:bg-morandi-clay text-white font-bold py-2.5 rounded-xl text-xs transition shadow-md">
+                    儲存變更
+                </button>
+                <button onclick="resetConfigLinks()" class="bg-morandi-bg hover:bg-morandi-roselight/50 text-morandi-muted font-bold px-3.5 py-2.5 rounded-xl text-xs transition">
+                    重置
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-morandi-dark text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-2xl flex items-center gap-2 transition-all duration-300 opacity-0 pointer-events-none translate-y-4">
+        <i id="toastIcon" class="fa-solid fa-circle-check text-morandi-roselight"></i>
+        <span id="toastMsg">提示訊息</span>
+    </div>
+
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Default Links Storage
+        const defaultLinks = {
+            google: 'https://search.google.com/local/writereview?placeid=ChIJNaHMKYypQjQRDJt_GxDPKd0',
+            ig: 'https://instagram.com/_u/nthpower39',
+            fb: 'https://www.facebook.com/profile.php?id=61558600604595',
+            line: 'https://lin.ee/Szx1ulo'
+        };
+
+        let currentLinks = { ...defaultLinks };
+
+        // Initialize Links on page load
+        function initLinks() {
+            const saved = localStorage.getItem('nth_power_fixed_links');
+            if (saved) {
+                try {
+                    currentLinks = JSON.parse(saved);
+                } catch (e) {
+                    currentLinks = { ...defaultLinks };
+                }
+            }
+            applyLinksToUI();
+        }
+
+        function applyLinksToUI() {
+            document.getElementById('btnGoogle').href = currentLinks.google || defaultLinks.google;
+            document.getElementById('btnIG').href = currentLinks.ig || defaultLinks.ig;
+            document.getElementById('btnFB').href = currentLinks.fb || defaultLinks.fb;
+            document.getElementById('btnLine').href = currentLinks.line || defaultLinks.line;
+        }
+
+        // Config Modal Functions
+        function openConfigModal() {
+            document.getElementById('cfgGoogle').value = currentLinks.google;
+            document.getElementById('cfgIG').value = currentLinks.ig;
+            document.getElementById('cfgFB').value = currentLinks.fb;
+            document.getElementById('cfgLine').value = currentLinks.line;
+            document.getElementById('configModal').classList.remove('hidden');
+        }
+
+        function closeConfigModal() {
+            document.getElementById('configModal').classList.add('hidden');
+        }
+
+        function saveConfigLinks() {
+            currentLinks.google = document.getElementById('cfgGoogle').value.trim() || defaultLinks.google;
+            currentLinks.ig = document.getElementById('cfgIG').value.trim() || defaultLinks.ig;
+            currentLinks.fb = document.getElementById('cfgFB').value.trim() || defaultLinks.fb;
+            currentLinks.line = document.getElementById('cfgLine').value.trim() || defaultLinks.line;
+
+            localStorage.setItem('nth_power_fixed_links', JSON.stringify(currentLinks));
+            applyLinksToUI();
+            closeConfigModal();
+            showToast('已成功儲存自訂社群網址！');
+        }
+
+        function resetConfigLinks() {
+            currentLinks = { ...defaultLinks };
+            localStorage.removeItem('nth_power_fixed_links');
+            applyLinksToUI();
+            closeConfigModal();
+            showToast('已重置為預設網址');
+        }
+
+        // Share & QR Modal Functions
+        function openShareModal() {
+            const qrContainer = document.getElementById('qrcodeCanvas');
+            qrContainer.innerHTML = '';
+            
+            new QRCode(qrContainer, {
+                text: window.location.href,
+                width: 150,
+                height: 150,
+                colorDark: "#3A2E2B",
+                colorLight: "#F8F4EE",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            document.getElementById('shareModal').classList.remove('hidden');
+        }
+
+        function closeShareModal() {
+            document.getElementById('shareModal').classList.add('hidden');
+        }
+
+        function copyCurrentPageUrl() {
+            const url = window.location.href;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url);
+                showToast('已複製網頁連結！');
+            } else {
+                const input = document.createElement('input');
+                input.value = url;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand('copy');
+                document.body.removeChild(input);
+                showToast('已複製網頁連結！');
+            }
+        }
+
+        // Toast Helper
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMsg');
+            toastMsg.innerText = msg;
+
+            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+            }, 3000);
+        }
+
+        // Initialize on DOM ready
+        window.onload = function() {
+            initLinks();
+        };
+    </script>
+</body>
+</html>
