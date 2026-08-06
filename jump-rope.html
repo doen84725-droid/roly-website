@@ -429,47 +429,50 @@
         </footer>
     </div>
 
-    <script>
-       const GAS_URL = "https://script.google.com/macros/s/AKfycbyNR8M5ZtMppNDaWfEAJCncXYKRzxNA_NAiL8jF0FJqpZSS7ohbNP8p028OGJ-BcIHqsA/exec";
+<script>
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbyNR8M5ZtMppNDaWfEAJCncXYKRzxNA_NAiL8jF0FJqpZSS7ohbNP8p028OGJ-BcIHqsA/exec";
 
-        document.getElementById("sportsBookingForm").addEventListener("submit", function(e) {
-            e.preventDefault();
+    document.getElementById("sportsBookingForm").addEventListener("submit", async function(e) {
+        e.preventDefault();
 
-            const submitBtn = document.getElementById("submitBtn");
-            const name = document.getElementById("userName").value.trim();
-            const phone = document.getElementById("userPhone").value.trim();
+        const submitBtn = document.getElementById("submitBtn");
+        const name = document.getElementById("userName").value.trim();
+        const phone = document.getElementById("userPhone").value.trim();
 
-            submitBtn.disabled = true;
-            submitBtn.innerText = "資料處理中...";
+        submitBtn.disabled = true;
+        submitBtn.innerText = "資料處理中...";
 
-            const payload = {
-                formType: "sports",
-                name: name,
-                phone: phone,
-                course: "跳床/運動課程"
-            };
+        const payload = {
+            formType: "sports",
+            name: name,
+            phone: phone,
+            course: "跳床/運動課程"
+        };
 
-            fetch(GAS_URL, {
+        // 預先準備好 LINE 跳轉網址
+        const message = `我在馨文的網站已填表單\n姓名：${name}\n電話：${phone}\n我想預約體驗【跳床/運動課程】！`;
+        const lineUrl = `https://line.me/R/oaMessage/@604hrrlc/?${encodeURIComponent(message)}`;
+
+        try {
+            // 使用 await 發送請求
+            await fetch(GAS_URL, {
                 method: "POST",
                 mode: "no-cors",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(payload)
-            })
-            .then(() => {
-                const message = `我在馨文的網站已填表單\n姓名：${name}\n電話：${phone}\n我想預約體驗【跳床/運動課程】！`;
-                const lineUrl = `https://line.me/R/oaMessage/@604hrrlc/?${encodeURIComponent(message)}`;
-                window.location.href = lineUrl;
-            })
-            .catch(error => {
-                console.error("提交錯誤:", error);
-                const message = `我在馨文的網站已填表單，我想預約體驗【跳床/運動課程】！`;
-                window.location.href = `https://line.me/R/oaMessage/@604hrrlc/?${encodeURIComponent(message)}`;
-            })
-            .finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.innerText = "💚 送出表單並前往 LINE 預約 ➔";
             });
-        });
-    </script>
+
+            // 稍微停頓 300ms 確保 Request 已由瀏覽器發出，再執行跳轉
+            setTimeout(() => {
+                window.location.href = lineUrl;
+            }, 300);
+
+        } catch (error) {
+            console.error("提交錯誤:", error);
+            // 發生錯誤時依然引導跳轉
+            window.location.href = lineUrl;
+        }
+    });
+</script>
 </body>
 </html>
