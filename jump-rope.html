@@ -256,7 +256,7 @@
             gap: 12px;
         }
 
-        .booking-form input {
+        .booking-form .form-group input {
             width: 100%;
             padding: 14px 16px;
             border: 1px solid #F0E2DC;
@@ -268,7 +268,7 @@
             transition: all 0.25s ease;
         }
 
-        .booking-form input:focus {
+        .booking-form .form-group input:focus {
             border-color: var(--primary-color);
             background-color: #FFFFFF;
             box-shadow: 0 0 0 3px rgba(232, 122, 132, 0.15);
@@ -410,8 +410,12 @@
             <div class="price-desc">✨ 199 元體驗券適用於以上所有課程！✨</div>
 
             <form id="sportsBookingForm" class="booking-form">
-                <input type="text" id="userName" placeholder="您的姓名 *" required />
-                <input type="tel" id="userPhone" placeholder="您的聯絡電話 *" required pattern="[0-9]{9,10}" title="請輸入正確電話號碼" />
+                <div class="form-group">
+                    <input type="text" id="userName" placeholder="您的姓名 *" required />
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="userPhone" placeholder="您的聯絡電話 *" required pattern="[0-9]{9,10}" title="請輸入正確電話號碼" />
+                </div>
                 <button type="submit" id="submitBtn" class="btn-reserve">💚 送出表單並前往 LINE 預約 ➔</button>
             </form>
         </div>
@@ -426,8 +430,7 @@
     </div>
 
     <script>
-        // Apps Script Web 應用程式網址
-        const GAS_URL = "https://script.google.com/macros/s/AKfycbwq2kLInC5aI60eY08d6EOnzvhXjH3c5mK2oHqL1zL8kO1y4n5G9g/exec"; // 請替換為您部署後獲得最新的 Web 應用程式 URL
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbwq2kLInC5aI60eY08d6EOnzvhXjH3c5mK2oHqL1zL8kO1y4n5G9g/exec";
 
         document.getElementById("sportsBookingForm").addEventListener("submit", function(e) {
             e.preventDefault();
@@ -453,7 +456,6 @@
                 body: JSON.stringify(payload)
             })
             .then(() => {
-                // 自動轉跳至 LINE@ 並帶出指定留言
                 const message = `我在馨文的網站已填表單\n姓名：${name}\n電話：${phone}\n我想預約體驗【跳床/運動課程】！`;
                 const lineUrl = `https://line.me/R/oaMessage/@604hrrlc/?${encodeURIComponent(message)}`;
                 window.location.href = lineUrl;
