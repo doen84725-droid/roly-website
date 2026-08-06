@@ -401,6 +401,7 @@
             <div class="price-badge"><del>$500</del> 體驗優惠價 $199</div>
             <div class="price-desc">✨ 填表領取 $199 體驗券（適用於以上所有課程）✨</div>
 
+            <!-- 階段一：填寫表單 -->
             <form id="sportsBookingForm" class="booking-form">
                 <div class="form-group">
                     <input type="text" id="userName" placeholder="您的姓名 *" required />
@@ -408,8 +409,15 @@
                 <div class="form-group">
                     <input type="tel" id="userPhone" placeholder="您的聯絡電話 *" required pattern="[0-9]{9,10}" title="請輸入正確電話號碼" />
                 </div>
-                <button type="submit" id="submitBtn" class="btn-reserve">💚 填表領取優惠並前往 LINE 預約 ➔</button>
+                <button type="submit" id="submitBtn" class="btn-reserve">💚 送出表單領取優惠 ➔</button>
             </form>
+
+            <!-- 階段二：送出後顯示（預設隱藏） -->
+            <div id="successBox" style="display: none; margin-top: 15px; padding: 20px; background-color: #F0FFF4; border: 1px solid #C6F6D5; border-radius: 16px;">
+                <p style="color: #276749; font-weight: bold; font-size: 16px; margin-bottom: 10px;">🎉 資料已成功送出！</p>
+                <p style="color: #4A5568; font-size: 13px; margin-bottom: 16px;">請點擊下方按鈕前往官方 LINE，我們將為您安排體驗時間：</p>
+                <a id="lineRedirectBtn" href="#" class="btn-reserve" style="text-decoration: none; display: block; line-height: 48px; background: #00B900;">💬 點此開啟 LINE 預約 ➔</a>
+            </div>
         </div>
 
         <footer class="page-footer">
@@ -431,7 +439,7 @@
             const phone = document.getElementById("userPhone").value.trim();
 
             submitBtn.disabled = true;
-            submitBtn.innerText = "資料傳送中，準備前往 LINE...";
+            submitBtn.innerText = "資料寫入中，請稍候...";
 
             const payload = {
                 formType: "sports",
@@ -444,7 +452,6 @@
             const lineUrl = `https://line.me/R/oaMessage/@604hrrlc/?${encodeURIComponent(message)}`;
 
             try {
-                // 背景發送寫入請求
                 await fetch(GAS_URL, {
                     method: "POST",
                     mode: "no-cors",
@@ -454,8 +461,12 @@
             } catch (error) {
                 console.error("提交記錄:", error);
             } finally {
-                // 送出後直接自動開啟 LINE 頁面
-                window.location.href = lineUrl;
+                document.getElementById("sportsBookingForm").style.display = "none";
+                const successBox = document.getElementById("successBox");
+                const lineRedirectBtn = document.getElementById("lineRedirectBtn");
+                
+                lineRedirectBtn.href = lineUrl;
+                successBox.style.display = "block";
             }
         });
     </script>
