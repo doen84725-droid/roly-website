@@ -448,27 +448,24 @@
             course: "跳床/運動課程"
         };
 
-        // 預先準備好 LINE 跳轉網址
         const message = `我在馨文的網站已填表單\n姓名：${name}\n電話：${phone}\n我想預約體驗【跳床/運動課程】！`;
         const lineUrl = `https://line.me/R/oaMessage/@604hrrlc/?${encodeURIComponent(message)}`;
 
         try {
-            // 使用 await 發送請求
+            // 💡 改用 text/plain 格式以完美通過 Google Apps Script 的 no-cors 跨域解析
             await fetch(GAS_URL, {
                 method: "POST",
                 mode: "no-cors",
-                headers: { "Content-Type": "application/json" },
+                headers: { "Content-Type": "text/plain;charset=utf-8" },
                 body: JSON.stringify(payload)
             });
 
-            // 稍微停頓 300ms 確保 Request 已由瀏覽器發出，再執行跳轉
             setTimeout(() => {
                 window.location.href = lineUrl;
             }, 300);
 
         } catch (error) {
             console.error("提交錯誤:", error);
-            // 發生錯誤時依然引導跳轉
             window.location.href = lineUrl;
         }
     });
