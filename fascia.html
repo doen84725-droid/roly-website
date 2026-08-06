@@ -1,345 +1,468 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>專業筋膜放鬆體驗 | N次方營養運動俱樂部</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>專業筋膜放鬆體驗 | N次方營養運動俱樂部</title>
+    <!-- 🌸 網站專屬小圖示 (Favicon) -->
+    <link rel="icon" type="image/png" href="https://i.meee.com.tw/fwAEuJj.png">
+    <!-- ✒️ 導入高質感優雅字型 (Cinzel & 思源宋體) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K6GDWY53DX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-K6GDWY53DX');
+    </script>
+    
+    <style>
+        :root {
+            --primary-color: #E87A84;
+            --primary-hover: #D96571;
+            --bg-color: #FDFAF8;
+            --card-bg: #FFFFFF;
+            --text-main: #2D201A;
+            --text-sub: #524037;
+            --border-color: #F0E2DC;
+        }
 
-<!-- 🌸 網站專屬小圖示 (Favicon) -->
-<link rel="icon" type="image/png" href="https://i.meee.com.tw/fwAEuJj.png">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
 
-<!-- ✒️ 導入高質感優雅字型 (Cinzel & 思源宋體) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+        body {
+            background: linear-gradient(180deg, #FDFAF8 0%, #F8F3EF 100%);
+            color: var(--text-sub);
+            padding: 24px 16px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-K6GDWY53DX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 32px 24px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(224, 136, 128, 0.12);
+            border: 1px solid #F5EBE6;
+            animation: fadeInUp 0.8s ease-out;
+        }
 
-  gtag('config', 'G-K6GDWY53DX');
-</script>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-<style>
-  :root {
-    --primary-color: #E87A84;
-    --primary-hover: #D96571;
-    --bg-color: #FDFAF8;
-    --card-bg: #FFFFFF;
-    --text-main: #2D201A;
-    --text-sub: #524037;
-    --border-color: #F0E2DC;
-  }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #9C7268;
+            text-decoration: none;
+            margin-bottom: 24px;
+            padding: 6px 14px;
+            background-color: #FAF4F0;
+            border-radius: 20px;
+            border: 1px solid #F0E2DC;
+            transition: all 0.25s ease;
+        }
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  }
+        .back-btn:hover {
+            color: var(--primary-color);
+            background-color: #F3E8E0;
+            transform: translateX(-3px);
+        }
 
-  body {
-    background: linear-gradient(180deg, #FDFAF8 0%, #F8F3EF 100%);
-    color: var(--text-sub);
-    padding: 24px 16px;
-    line-height: 1.6;
-    min-height: 100vh;
-  }
+        .header {
+            text-align: center;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 24px;
+            margin-bottom: 28px;
+        }
 
-  .container {
-    max-width: 720px;
-    margin: 0 auto;
-    background: var(--card-bg);
-    padding: 32px 24px;
-    border-radius: 24px;
-    box-shadow: 0 10px 30px rgba(224, 136, 128, 0.12);
-    border: 1px solid #F5EBE6;
-    animation: fadeInUp 0.8s ease-out;
-  }
+        .header h1 {
+            color: var(--text-main);
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
 
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+        .tag-group {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
 
-  .back-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    font-weight: 700;
-    color: #9C7268;
-    text-decoration: none;
-    margin-bottom: 24px;
-    padding: 6px 14px;
-    background-color: #FAF4F0;
-    border-radius: 20px;
-    border: 1px solid #F0E2DC;
-    transition: all 0.25s ease;
-  }
-  .back-btn:hover {
-    color: var(--primary-color);
-    background-color: #F3E8E0;
-    transform: translateX(-3px);
-  }
+        .tag {
+            background: linear-gradient(135deg, #FFF0EF, #FFE4E2);
+            color: var(--primary-color);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            border: 1px solid #FFD3D1;
+        }
 
-  .header {
-    text-align: center;
-    border-bottom: 1px dashed var(--border-color);
-    padding-bottom: 24px;
-    margin-bottom: 28px;
-  }
-  .header h1 {
-    color: var(--text-main);
-    font-size: 26px;
-    font-weight: 800;
-    margin-bottom: 12px;
-    letter-spacing: -0.5px;
-  }
-  .tag-group {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .tag {
-    background: linear-gradient(135deg, #FFF0EF, #FFE4E2);
-    color: var(--primary-color);
-    padding: 5px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
-    border: 1px solid #FFD3D1;
-  }
+        .intro-text {
+            font-size: 14px;
+            color: var(--text-sub);
+            line-height: 1.8;
+            margin-bottom: 30px;
+            background-color: #FAF4F0;
+            padding: 18px;
+            border-radius: 16px;
+            border-left: 4px solid var(--primary-color);
+        }
 
-  .intro-text {
-    font-size: 14px;
-    color: var(--text-sub);
-    line-height: 1.8;
-    margin-bottom: 30px;
-    background-color: #FAF4F0;
-    padding: 18px;
-    border-radius: 16px;
-    border-left: 4px solid var(--primary-color);
-  }
+        .section-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin: 36px 0 18px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-  .section-title {
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--text-main);
-    margin: 36px 0 18px 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+        /* 4大特色卡片網格 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
 
-  /* 4大特色卡片網格 */
-  .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
-  }
-  .feature-card {
-    background: #FFFBF9;
-    border: 1px solid #F8E8E2;
-    padding: 20px;
-    border-radius: 16px;
-    transition: all 0.25s ease;
-  }
-  .feature-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(232, 122, 132, 0.12);
-  }
-  .feature-card h3 {
-    color: var(--primary-color);
-    font-size: 17px;
-    font-weight: 800;
-    margin-bottom: 8px;
-  }
-  .feature-card p {
-    font-size: 13px;
-    color: #665248;
-    margin: 0;
-  }
+        .feature-card {
+            background: #FFFBF9;
+            border: 1px solid #F8E8E2;
+            padding: 20px;
+            border-radius: 16px;
+            transition: all 0.25s ease;
+        }
 
-  /* 🖼️ 圖文展示區塊 (統一圖片 4:3 比例) */
-  .showcase-card {
-    background: #FFFFFF;
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-    margin-bottom: 24px;
-  }
-  /* 💡 改為 4:3 比例 */
-  .showcase-card img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    display: block;
-  }
-  .showcase-info {
-    padding: 16px 20px;
-    background-color: #FAF4F0;
-  }
-  .showcase-info h4 {
-    font-size: 16px;
-    font-weight: 800;
-    color: var(--text-main);
-    margin-bottom: 4px;
-  }
-  .showcase-info p {
-    font-size: 13px;
-    color: var(--text-sub);
-  }
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(232, 122, 132, 0.12);
+        }
 
-  /* 底部行動區域 */
-  .action-box {
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 28px;
-    border-top: 2px dashed #F0E2DC;
-  }
-  .price-badge {
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--primary-color);
-    margin-bottom: 18px;
-  }
-  .price-badge del {
-    font-size: 15px;
-    color: #B39B91;
-    margin-right: 8px;
-  }
+        .feature-card h3 {
+            color: var(--primary-color);
+            font-size: 17px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
 
-  .btn-reserve {
-    display: inline-block;
-    width: 100%;
-    max-width: 340px;
-    background: linear-gradient(135deg, #FF8E88, #E87A84);
-    color: white;
-    padding: 15px 0;
-    border-radius: 30px;
-    font-weight: 800;
-    font-size: 16px;
-    text-decoration: none;
-    box-shadow: 0 6px 18px rgba(232, 122, 132, 0.35);
-    transition: all 0.25s ease;
-  }
-  .btn-reserve:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(232, 122, 132, 0.48);
-  }
+        .feature-card p {
+            font-size: 13px;
+            color: #665248;
+            margin: 0;
+        }
 
-  /* 頁尾 Footer 樣式 */
-  .page-footer {
-    margin-top: 40px;
-    padding-top: 24px;
-    border-top: 1px dashed #F0E2DC;
-    text-align: center;
-    font-size: 12px;
-    color: #8C756B;
-    line-height: 1.8;
-  }
-  .footer-brand { font-size: 14px; font-weight: 800; color: #3D2E26; margin-bottom: 6px; }
-  .footer-notice { font-size: 11px; color: #A38C82; margin-top: 10px; }
-</style>
+        /* 🖼️ 圖文展示區塊 (統一圖片 4:3 比例) */
+        .showcase-card {
+            background: #FFFFFF;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            margin-bottom: 24px;
+        }
+
+        .showcase-card img {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            display: block;
+        }
+
+        .showcase-info {
+            padding: 16px 20px;
+            background-color: #FAF4F0;
+        }
+
+        .showcase-info h4 {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .showcase-info p {
+            font-size: 13px;
+            color: var(--text-sub);
+        }
+
+        /* 底部行動區域與表單 */
+        .action-box {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 28px;
+            border-top: 2px dashed #F0E2DC;
+        }
+
+        .price-badge {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 6px;
+        }
+
+        .price-badge del {
+            font-size: 15px;
+            color: #B39B91;
+            margin-right: 8px;
+        }
+
+        .price-desc {
+            font-size: 13px;
+            font-weight: 700;
+            color: #00A542;
+            margin-bottom: 18px;
+        }
+
+        .booking-form {
+            max-width: 360px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .booking-form .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #F0E2DC;
+            border-radius: 14px;
+            font-size: 14px;
+            background-color: #FAF4F0;
+            color: var(--text-main);
+            outline: none;
+            transition: all 0.25s ease;
+        }
+
+        .booking-form .form-group input:focus {
+            border-color: var(--primary-color);
+            background-color: #FFFFFF;
+            box-shadow: 0 0 0 3px rgba(232, 122, 132, 0.15);
+        }
+
+        .btn-reserve {
+            display: inline-block;
+            width: 100%;
+            background: linear-gradient(135deg, #FF8E88, #E87A84);
+            color: white;
+            padding: 15px 0;
+            border: none;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(232, 122, 132, 0.35);
+            transition: all 0.25s ease;
+        }
+
+        .btn-reserve:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(232, 122, 132, 0.48);
+        }
+
+        .btn-reserve:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* 頁尾 Footer 樣式 */
+        .page-footer {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px dashed #F0E2DC;
+            text-align: center;
+            font-size: 12px;
+            color: #8C756B;
+            line-height: 1.8;
+        }
+
+        .footer-brand {
+            font-size: 14px;
+            font-weight: 800;
+            color: #3D2E26;
+            margin-bottom: 6px;
+        }
+
+        .footer-notice {
+            font-size: 11px;
+            color: #A38C82;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
-<div class="container">
-  <a href="./index.html" class="back-btn">← 返回首頁</a>
-  
-  <div class="header">
-    <h1>專業深層筋膜放鬆</h1>
-    <div class="tag-group">
-      <span class="tag">#擺脫肩頸緊繃</span>
-      <span class="tag">#專業筋膜刀工具</span>
-      <span class="tag">#改善體態姿勢</span>
-    </div>
-  </div>
+    <div class="container">
+        <a href="./index.html" class="back-btn">← 返回首頁</a>
 
-  <div class="intro-text">
-    👋 長期低頭看手機、久坐打字，或是運動後乳酸堆積，都會讓包覆肌肉的「肌筋膜」變得緊繃黏連！透過專業手法搭配筋膜刀輔助，能深層鬆開黏連痛點，恢復肌肉彈性與關節活動度，讓身體重回輕鬆輕盈的狀態。
-  </div>
+        <div class="header">
+            <h1>專業深層筋膜放鬆</h1>
+            <div class="tag-group">
+                <span class="tag">#擺脫肩頸緊繃</span>
+                <span class="tag">#專業筋膜刀工具</span>
+                <span class="tag">#改善體態姿勢</span>
+            </div>
+        </div>
 
-  <!-- 🌟 體驗流程圖文解說 -->
-  <div class="section-title">✨ 專業體驗 4 步驟</div>
-  <div class="showcase-card">
-    <img src="https://i.meee.com.tw/bfHNOlB.jpg" alt="筋膜放鬆服務流程圖" loading="lazy">
-    <div class="showcase-info">
-      <h4>專業一對一引導，安心舒適放鬆</h4>
-      <p>從最初的痛點評估、肌肉張力檢測，到客製化的筋膜放鬆與課後伸展建議，全方位關照你的身體狀態。</p>
-    </div>
-  </div>
+        <div class="intro-text">
+            👋 長期低頭看手機、久坐打字，或是運動後乳酸堆積，都會讓包覆肌肉的「肌筋膜」變得緊繃黏連！透過專業手法搭配筋膜刀輔助，能深層鬆開黏連痛點，恢復肌肉彈性與關節活動度，讓身體重回輕鬆輕盈的狀態。
+        </div>
 
-  <!-- 🌿 放鬆效益特色區 -->
-  <div class="section-title">💡 為什麼你需要筋膜放鬆？</div>
-  <div class="feature-grid" style="margin-bottom: 24px;">
-    <div class="feature-card">
-      <h3>💆‍♀️ 釋放積壓痠痛</h3>
-      <p>針對久坐族最常發生的肩頸僵硬、腰痠背痛，進行精準的點對點深層釋放。</p>
-    </div>
-    <div class="feature-card">
-      <h3>⚡ 提升運動表現</h3>
-      <p>鬆開緊繃黏連的筋膜組織，增加關節活動角度，讓運動訓練效果大幅提升。</p>
-    </div>
-    <div class="feature-card">
-      <h3>🌿 促進代謝循環</h3>
-      <p>加速運動後的廢物排出，減緩運動後的肌肉延遲性痠痛感。</p>
-    </div>
-    <div class="feature-card">
-      <h3>✨ 輔助體態矯治</h3>
-      <p>放鬆過度緊繃的肌肉群，協助身體回到自然的骨骼結構與端正體態。</p>
-    </div>
-  </div>
+        <!-- 🌟 體驗流程圖文解說 -->
+        <div class="section-title">✨ 專業體驗 4 步驟</div>
+        <div class="showcase-card">
+            <img src="https://i.meee.com.tw/bfHNOlB.jpg" alt="筋膜放鬆服務流程圖" loading="lazy">
+            <div class="showcase-info">
+                <h4>專業一對一引導，安心舒適放鬆</h4>
+                <p>從最初的痛點評估、肌肉張力檢測，到客製化的筋膜放鬆與課後伸展建議，全方位關照你的身體狀態。</p>
+            </div>
+        </div>
 
-  <!-- 📸 適合族群區塊 -->
-  <div class="section-title">🔥 適合對象與對象評估</div>
-  <div class="showcase-card">
-    <img src="https://i.meee.com.tw/KsbJh4L.png" alt="適合族群說明圖" loading="lazy">
-    <div class="showcase-info">
-      <h4>你也是這些族群嗎？</h4>
-      <p>久坐上班族、運動愛好者、姿勢不良或經常覺得身體僵硬者都很適合！</p>
+        <!-- 🌿 放鬆效益特色區 -->
+        <div class="section-title">💡 為什麼你需要筋膜放鬆？</div>
+        <div class="feature-grid" style="margin-bottom: 24px;">
+            <div class="feature-card">
+                <h3>💆‍♀️ 釋放積壓痠痛</h3>
+                <p>針對久坐族最常發生的肩頸僵硬、腰痠背痛，進行精準的點對點深層釋放。</p>
+            </div>
+            <div class="feature-card">
+                <h3>⚡ 提升運動表現</h3>
+                <p>鬆開緊繃黏連的筋膜組織，增加關節活動角度，讓運動訓練效果大幅提升。</p>
+            </div>
+            <div class="feature-card">
+                <h3>🌿 促進代謝循環</h3>
+                <p>加速運動後的廢物排出，減緩運動後的肌肉延遲性痠痛感。</p>
+            </div>
+            <div class="feature-card">
+                <h3>✨ 輔助體態矯治</h3>
+                <p>放鬆過度緊繃的肌肉群，協助身體回到自然的骨骼結構與端正體態。</p>
+            </div>
+        </div>
+
+        <!-- 📸 適合族群區塊 -->
+        <div class="section-title">🔥 適合對象與對象評估</div>
+        <div class="showcase-card">
+            <img src="https://i.meee.com.tw/KsbJh4L.png" alt="適合族群說明圖" loading="lazy">
+            <div class="showcase-info">
+                <h4>你也是這些族群嗎？</h4>
+                <p>久坐上班族、運動愛好者、姿勢不良或經常覺得身體僵硬者都很適合！</p>
+            </div>
+        </div>
+
+        <!-- 🎯 專業手法與筋膜刀搭配圖片 1 -->
+        <div class="section-title">🌸 專屬客製手法與專業筋膜刀搭配</div>
+        <div class="showcase-card">
+            <img src="https://i.meee.com.tw/c8GCCWz.png" alt="專業手法搭配筋膜刀放鬆" loading="lazy">
+            <div class="showcase-info">
+                <h4>徒手切入 ＋ 專業筋膜刀精準深層理筋</h4>
+                <p>告別傳統推拿的劇烈疼痛！運用順應肌理的徒手按壓與專用筋膜刀，深層鬆開頑固黏連，恢復肌筋膜彈性。</p>
+            </div>
+        </div>
+
+        <!-- 🎯 專業手法與環境展示圖片 2 -->
+        <div class="showcase-card">
+            <img src="https://i.meee.com.tw/aQYNm8O.png" alt="溫馨環境與專業放鬆體驗" loading="lazy">
+            <div class="showcase-info">
+                <h4>溫馨私密環境 & 質感體驗</h4>
+                <p>在舒適放鬆的空間裡，享受專屬的 1 對 1 身心深層舒壓放鬆行程。</p>
+            </div>
+        </div>
+
+        <!-- 💚 底部預約表單與行動按鈕 -->
+        <div class="action-box">
+            <div class="price-badge"><del>$750</del> 體驗優惠價 $399</div>
+            <div class="price-desc">✨ 填表領取 $399 筋膜放鬆體驗優惠券 ✨</div>
+
+            <!-- 階段一：填寫表單 -->
+            <form id="fasciaBookingForm" class="booking-form">
+                <div class="form-group">
+                    <input type="text" id="userName" placeholder="您的姓名 *" required />
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="userPhone" placeholder="您的聯絡電話 *" required pattern="[0-9]{9,10}" title="請輸入正確電話號碼" />
+                </div>
+                <button type="submit" id="submitBtn" class="btn-reserve">💚 送出表單領取優惠 ➔</button>
+            </form>
+
+            <!-- 階段二：送出後顯示（預設隱藏） -->
+            <div id="successBox" style="display: none; margin-top: 15px; padding: 20px; background-color: #F0FFF4; border: 1px solid #C6F6D5; border-radius: 16px;">
+                <p style="color: #276749; font-weight: bold; font-size: 16px; margin-bottom: 10px;">🎉 資料已成功送出！</p>
+                <p style="color: #4A5568; font-size: 13px; margin-bottom: 16px;">請點擊下方按鈕前往官方 LINE，我們將為您安排體驗時間：</p>
+                <a id="lineRedirectBtn" href="#" class="btn-reserve" style="text-decoration: none; display: block; line-height: 48px; background: #00B900;">💬 點此開啟 LINE 預約 ➔</a>
+            </div>
+        </div>
+
+        <!-- 頁尾 -->
+        <footer class="page-footer">
+            <div class="footer-brand">N次方營養運動俱樂部</div>
+            <p>📍 板橋門市提供：跳床運動｜筋膜放鬆｜1對1體態管理</p>
+            <p>服務時間：週一至週六（預約制）</p>
+            <p class="footer-notice">© 2026 Roly 馨文 All Rights Reserved.</p>
+        </footer>
     </div>
-  </div>
 
-  <!-- 🎯 專業手法與筋膜刀搭配圖片 1 -->
-  <div class="section-title">🌸 專屬客製手法與專業筋膜刀搭配</div>
-  <div class="showcase-card">
-    <img src="https://i.meee.com.tw/c8GCCWz.png" alt="專業手法搭配筋膜刀放鬆" loading="lazy">
-    <div class="showcase-info">
-      <h4>徒手切入 ＋ 專業筋膜刀精準深層理筋</h4>
-      <p>告別傳統推拿的劇烈疼痛！運用順應肌理的徒手按壓與專用筋膜刀，深層鬆開頑固黏連，恢復肌筋膜彈性。</p>
-    </div>
-  </div>
+    <script>
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbyNR8M5ZtMppNDaWfEAJCncXYKRzxNA_NAiL8jF0FJqpZSS7ohbNP8p028OGJ-BcIHqsA/exec";
 
-  <!-- 🎯 專業手法與環境展示圖片 2 (aQYNm8O.png) -->
-  <div class="showcase-card">
-    <img src="https://i.meee.com.tw/aQYNm8O.png" alt="溫馨環境與專業放鬆體驗" loading="lazy">
-    <div class="showcase-info">
-      <h4>溫馨私密環境 & 質感體驗</h4>
-      <p>在舒適放鬆的空間裡，享受專屬的 1 對 1 身心深層舒壓放鬆行程。</p>
-    </div>
-  </div>
+        document.getElementById("fasciaBookingForm").addEventListener("submit", async function(e) {
+            e.preventDefault();
 
-  <!-- 💚 底部預約行動 -->
-  <div class="action-box">
-    <div class="price-badge"><del>$750</del> 體驗優惠價 $399</div>
-    <a href="https://line.me/R/oaMessage/@604hrrlc/?我是透過馨文的網站來的%20我想體驗專業筋膜放鬆" target="_blank" rel="noopener noreferrer" class="btn-reserve">💚 私訊預約體驗 ➔</a>
-  </div>
+            const submitBtn = document.getElementById("submitBtn");
+            const name = document.getElementById("userName").value.trim();
+            const phone = document.getElementById("userPhone").value.trim();
 
-  <!-- 頁尾 -->
-  <footer class="page-footer">
-    <div class="footer-brand">N次方營養運動俱樂部</div>
-    <p>📍 板橋門市提供：跳床運動｜筋膜放鬆｜1對1體態管理</p>
-    <p>服務時間：週一至週六（預約制）</p>
-    <p class="footer-notice">© 2026 Roly 馨文 All Rights Reserved.</p>
-  </footer>
-</div>
+            submitBtn.disabled = true;
+            submitBtn.innerText = "資料寫入中，請稍候...";
 
+            const payload = {
+                formType: "sports",
+                name: name,
+                phone: phone,
+                course: "筋膜放鬆"
+            };
+
+            // 預先準備 LINE 訊息連結
+            const message = `我在馨文的網站已填表單\n姓名：${name}\n電話：${phone}\n我想預約體驗【筋膜放鬆】！`;
+            const lineUrl = `https://line.me/R/oaMessage/@604hrrlc/?${encodeURIComponent(message)}`;
+
+            try {
+                // 背景寫入 Apps Script
+                await fetch(GAS_URL, {
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: { "Content-Type": "text/plain;charset=utf-8" },
+                    body: JSON.stringify(payload)
+                });
+            } catch (error) {
+                console.error("提交記錄:", error);
+            } finally {
+                // 完成寫入後隱藏表單，顯示「點此開啟 LINE 預約」按鈕
+                document.getElementById("fasciaBookingForm").style.display = "none";
+                const successBox = document.getElementById("successBox");
+                const lineRedirectBtn = document.getElementById("lineRedirectBtn");
+                
+                lineRedirectBtn.href = lineUrl;
+                successBox.style.display = "block";
+            }
+        });
+    </script>
 </body>
 </html>
