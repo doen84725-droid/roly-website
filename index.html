@@ -95,24 +95,6 @@
       margin-top: 1px;
     }
 
-    .header-action-btn {
-      font-size: 12px;
-      font-weight: 700;
-      color: #ffffff;
-      background: linear-gradient(135deg, #FF8E88, #E87A84);
-      padding: 6px 14px;
-      border-radius: 18px;
-      text-decoration: none;
-      box-shadow: 0 3px 10px rgba(232, 122, 132, 0.3);
-      transition: all 0.25s ease;
-      white-space: nowrap;
-    }
-
-    .header-action-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(232, 122, 132, 0.45);
-    }
-
     /* 容器與淡入動畫 */
     .card-container {
       max-width: 480px;
@@ -358,6 +340,13 @@
       gap: 6px;
     }
 
+    /* 🌸 螢光筆劃重點樣式 */
+    .highlight {
+      font-weight: 800;
+      background: linear-gradient(180deg, transparent 55%, #FFE2E0 55%);
+      padding: 0 2px;
+    }
+
     .service-price { font-size: 16px; font-weight: 800; color: #E87A84; }
     .old-price { font-size: 12px; color: #B39B91; text-decoration: line-through; margin-right: 4px; }
 
@@ -379,18 +368,18 @@
       margin-bottom: 16px;
     }
 
-    /* 🌸 顯眼滿版主要按鈕樣式 */
+    /* 🌸 顯眼滿版主要按鈕樣式 (統一 25px 膠囊圓角與粗體) */
     .buy-btn {
       display: block;
       width: 100%;
-      padding: 12px 0;
+      padding: 13px 0;
       background: linear-gradient(135deg, #FF8E88, #E87A84);
       color: #ffffff;
       text-align: center;
       text-decoration: none;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 14px;
+      border-radius: 25px; /* 統一膠囊圓角 */
+      font-weight: 800;    /* 統一粗體 */
+      font-size: 15px;     /* 統一字級 */
       box-shadow: 0 4px 14px rgba(232, 122, 132, 0.3);
       transition: all 0.25s ease;
     }
@@ -483,7 +472,7 @@
 </head>
 <body>
 
-  <!-- 🌸 固定頁首 (Fixed Header) -->
+  <!-- 🌸 固定頁首 (Fixed Header) - 已移除右上角按鈕 -->
   <header class="site-header">
     <a href="./index.html" class="header-brand">
       <span class="header-logo-dot"></span>
@@ -491,9 +480,6 @@
         <div class="brand-title-en">Roly's Healthy Life</div>
         <div class="brand-title-zh">陪你建構理想健康生活</div>
       </div>
-    </a>
-    <a href="https://line.me/R/oaMessage/@604hrrlc/?你好!我是透過馨文的網站來的" target="_blank" rel="noopener noreferrer" class="header-action-btn">
-      預約諮詢
     </a>
   </header>
 
@@ -531,7 +517,7 @@
       <!-- 自我介紹區塊 -->
       <div class="bio-box">
         <p>👋 你好！我是馨文（Roly）</p>
-        <p>專注於陪伴大家透過均衡營養與高效運動，打造健康不反彈的理想體態。不論是想減脂放電、筋膜放鬆，還是想找到適合自己的運動節奏，我都隨時在這裡為你服務！</p>
+        <p>專注於陪伴大家透過均衡營養與高效運動，打造健康不反彈的理想體態。不論是想減脂放電、<span class="highlight">筋膜放鬆</span>，還是想找到適合自己的運動節奏，我都隨時在這裡為你服務！</p>
 
         <div class="bio-footer">
           <a href="./story.html" class="story-link-btn">
@@ -548,33 +534,31 @@
       <div class="section-title">🔥 熱門體驗計畫</div>
       <div class="services-wrapper">
 
-        <!-- 卡片 3：3日體態突破體驗組 (瘦身圖示 🔥) -->
+        <!-- 卡片 3：3日體態突破體驗組 (標題文字加重點劃線) -->
         <div class="service-card">
           <span class="badge badge-green">✨ 強烈推薦</span>
           <div class="service-header">
-            <div class="service-title">🔥 3日體態突破體驗組</div>
+            <div class="service-title">🔥 3日<span class="highlight">體態突破</span>體驗組</div>
             <div class="service-price">諮詢體驗</div>
           </div>
           <div class="service-desc">不用吃藥打針！專為試過各種方法卻沒效果的你設計。透過 1對1 專業顧問指導與科學飲食搭配，3天帶你體驗快速啟動新陳代謝、甩開沉重負擔的「超有感」改變！</div>
-          <div style="margin-top: 15px;">
-            <a href="./testimonial.html" class="buy-btn" style="font-size: 15px; font-weight: 800; padding: 13px 0; border-radius: 25px;">✨ 點我看大家跟著計畫瘦多少！ ➔</a>
-          </div>
+          <a href="./testimonial.html" class="buy-btn">✨ 點我看大家跟著計畫瘦多少！ ➔</a>
         </div>
 
-        <!-- 卡片 1：跳床體驗券 (運動圖示 🏃) -->
+        <!-- 卡片 1：跳床體驗券 (標題文字加重點劃線) -->
         <div class="service-card">
           <div class="service-header">
-            <div class="service-title">🏃 跳床&各種運動課程體驗</div>
+            <div class="service-title">🏃 <span class="highlight">跳床</span>&各種運動課程體驗</div>
             <div class="service-price"><span class="old-price">$500</span>$199</div>
           </div>
           <div class="service-desc">全年齡皆宜的高效有氧運動！低衝擊不傷膝蓋，兼具樂趣與燃脂效果，零基礎也能輕鬆上手。</div>
           <a href="./jump-rope.html" class="buy-btn">了解跳床&運動課程 ➔</a>
         </div>
 
-        <!-- 卡片 2：筋膜放鬆 (按摩圖示 💆) -->
+        <!-- 卡片 2：筋膜放鬆 (標題文字加重點劃線) -->
         <div class="service-card">
           <div class="service-header">
-            <div class="service-title">💆 專業筋膜放鬆體驗</div>
+            <div class="service-title">💆 專業<span class="highlight">筋膜放鬆</span>體驗</div>
             <div class="service-price"><span class="old-price">$750</span>$399</div>
           </div>
           <div class="price-highlight-text">🔥 甜甜體驗價！小資紓壓首選</div>
