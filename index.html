@@ -136,7 +136,7 @@
       border: 1px solid #F5EBE6;
     }
 
-    /* 🌸 方案 C：微光暈發光風格頭像外框 (修改處) */
+    /* 🌸 方案 C：微光暈發光風格頭像外框 */
     .avatar-wrapper {
       position: relative;
       width: 116px;
@@ -145,7 +145,7 @@
       border-radius: 50%;
       padding: 3px;
       background: linear-gradient(135deg, #E87A84, #F8C3B8);
-      box-shadow: 0 0 25px rgba(232, 122, 132, 0.45); /* 微光暈發光效果 */
+      box-shadow: 0 0 25px rgba(232, 122, 132, 0.45);
     }
 
     .avatar {
@@ -169,65 +169,85 @@
       font-size: 13px;
       font-weight: 600;
       color: #9C7268;
-      margin-bottom: 14px;
+      margin-bottom: 18px;
     }
 
-    /* 🌸 社群按鈕群 (職稱下方) */
+    /* 🌸 無邊框、淡底色、放大版社交圖示群 */
     .social-grid {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       flex-wrap: wrap;
-      margin-bottom: 18px;
+      margin-bottom: 22px;
     }
 
     .social-btn {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      padding: 6px 12px;
-      border-radius: 20px;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 22px;
       text-decoration: none;
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 700;
-      color: #ffffff;
+      color: #524037;
+      background-color: #FAF2EE; /* 淡暖粉白色系 */
+      border: none; /* 完全無邊框 */
       transition: all 0.25s ease;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     }
 
-    /* 圓形圖示按鈕 (純圖無字) */
     .social-btn-icon-only {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 28px;
-      height: 28px;
+      width: 36px;
+      height: 36px;
       padding: 0;
       border-radius: 50%;
       text-decoration: none;
-      color: #ffffff;
+      color: #524037;
+      background-color: #FAF2EE; /* 淡暖粉白色系 */
+      border: none; /* 完全無邊框 */
       transition: all 0.25s ease;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     }
 
-    .social-btn:hover, .social-btn-icon-only:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.08);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    }
-
+    /* 圖示放大為 18px */
     .btn-icon {
-      width: 14px;
-      height: 14px;
+      width: 18px;
+      height: 18px;
       fill: currentColor;
       flex-shrink: 0;
     }
 
-    .btn-line { background-color: #00B900; }
-    .btn-ig { background: linear-gradient(45deg, #F09433, #E6683C, #DC2743, #CC2366); }
-    .btn-line-oa { background-color: #06C755; }
-    .btn-map { background-color: #EA4335; }
+    /* 滑鼠懸停 (Hover) 時顯現原色 */
+    .social-btn-icon-only.btn-line:hover {
+      background-color: #00B900;
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(0, 185, 0, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .social-btn-icon-only.btn-ig:hover {
+      background: linear-gradient(45deg, #F09433, #E6683C, #DC2743, #CC2366);
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(220, 39, 67, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .social-btn.btn-line-oa:hover {
+      background-color: #06C755;
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(6, 199, 85, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .social-btn.btn-map:hover {
+      background-color: #EA4335;
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(234, 67, 53, 0.35);
+      transform: translateY(-2px);
+    }
 
     /* 自我介紹框 */
     .bio-box {
@@ -315,22 +335,10 @@
       letter-spacing: 0.5px;
     }
 
-    /* 1. ✨ 強烈推薦 (鮮豔亮綠標籤) */
+    /* ✨ 強烈推薦 (綠色標籤) */
     .badge-green {
       background: linear-gradient(135deg, #00C853, #009624);
       box-shadow: 0 4px 12px rgba(0, 200, 83, 0.4);
-    }
-
-    /* 2. 🔥 熱銷首選 (高彩鮮紅標籤) */
-    .badge-red {
-      background: linear-gradient(135deg, #FF3547, #D32F2F);
-      box-shadow: 0 4px 12px rgba(255, 53, 71, 0.4);
-    }
-
-    /* 3. ✨ 超值熱門 (暖橘色標籤) */
-    .badge-orange {
-      background: linear-gradient(135deg, #FF9800, #F57C00);
-      box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4);
     }
 
     .service-header {
@@ -345,6 +353,9 @@
       font-weight: 800;
       color: #2D201A;
       line-height: 1.3;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .service-price { font-size: 16px; font-weight: 800; color: #E87A84; }
@@ -368,31 +379,7 @@
       margin-bottom: 16px;
     }
 
-    .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-    /* 了解更多按鈕 + Hover 效果 */
-    .btn-more {
-      display: block;
-      width: 100%;
-      padding: 12px 0;
-      background-color: #FAF4F0;
-      color: #524037;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 13px;
-      border: 1px solid #F0E2DC;
-      transition: all 0.25s ease;
-    }
-
-    .btn-more:hover {
-      background-color: #F3E8E0;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(82, 64, 55, 0.08);
-    }
-
-    /* 購票/預約按鈕 + Hover 效果 */
+    /* 🌸 顯眼滿版主要按鈕樣式 */
     .buy-btn {
       display: block;
       width: 100%;
@@ -403,7 +390,7 @@
       text-decoration: none;
       border-radius: 12px;
       font-weight: 700;
-      font-size: 13px;
+      font-size: 14px;
       box-shadow: 0 4px 14px rgba(232, 122, 132, 0.3);
       transition: all 0.25s ease;
     }
@@ -413,7 +400,7 @@
       box-shadow: 0 6px 20px rgba(232, 122, 132, 0.45);
     }
 
-    .buy-btn:active, .btn-more:active {
+    .buy-btn:active {
       transform: translateY(0);
     }
 
@@ -519,7 +506,7 @@
       <div class="name">Roly / 馨文</div>
       <div class="subtitle">N次方營養運動俱樂部 行銷總監 / 體態管理顧問</div>
 
-      <!-- 🌸 精緻社群按鈕群（於職稱正下方） -->
+      <!-- 🌸 無邊框、淡底色、放大版社群按鈕群 -->
       <div class="social-grid">
         <!-- LINE (純圖示) -->
         <a href="https://line.me/ti/p/QsCwlCVTSB" target="_blank" rel="noopener noreferrer" class="social-btn-icon-only btn-line" title="LINE">
@@ -561,11 +548,11 @@
       <div class="section-title">🔥 熱門體驗計畫</div>
       <div class="services-wrapper">
 
-        <!-- 卡片 3：3日體態突破體驗組 -->
+        <!-- 卡片 3：3日體態突破體驗組 (瘦身圖示 🔥) -->
         <div class="service-card">
           <span class="badge badge-green">✨ 強烈推薦</span>
           <div class="service-header">
-            <div class="service-title">3日體態突破體驗組</div>
+            <div class="service-title">🔥 3日體態突破體驗組</div>
             <div class="service-price">諮詢體驗</div>
           </div>
           <div class="service-desc">不用吃藥打針！專為試過各種方法卻沒效果的你設計。透過 1對1 專業顧問指導與科學飲食搭配，3天帶你體驗快速啟動新陳代謝、甩開沉重負擔的「超有感」改變！</div>
@@ -574,33 +561,25 @@
           </div>
         </div>
 
-        <!-- 卡片 1：跳床體驗券 -->
+        <!-- 卡片 1：跳床體驗券 (運動圖示 🏃) -->
         <div class="service-card">
-          <span class="badge badge-red">🔥 熱銷首選</span>
           <div class="service-header">
-            <div class="service-title">跳床&各種運動課程體驗券</div>
+            <div class="service-title">🏃 跳床&各種運動課程體驗券</div>
             <div class="service-price"><span class="old-price">$500</span>$199</div>
           </div>
           <div class="service-desc">全年齡皆宜的高效有氧運動！低衝擊不傷膝蓋，兼具樂趣與燃脂效果，零基礎也能輕鬆上手。</div>
-          <div class="btn-group">
-            <a href="./jump-rope.html" class="btn-more">了解更多</a>
-            <a href="https://line.me/R/oaMessage/@604hrrlc/?我是透過馨文的網站來的%20我想體驗跳床/運動課程" target="_blank" rel="noopener noreferrer" class="buy-btn">預約體驗</a>
-          </div>
+          <a href="./jump-rope.html" class="buy-btn">了解跳床&運動課程 ➔</a>
         </div>
 
-        <!-- 卡片 2：筋膜放鬆 -->
+        <!-- 卡片 2：筋膜放鬆 (按摩圖示 💆) -->
         <div class="service-card">
-          <span class="badge badge-orange">✨ 超值熱門</span>
           <div class="service-header">
-            <div class="service-title">專業筋膜放鬆體驗</div>
+            <div class="service-title">💆 專業筋膜放鬆體驗</div>
             <div class="service-price"><span class="old-price">$750</span>$399</div>
           </div>
           <div class="price-highlight-text">🔥 甜甜體驗價！小資紓壓首選</div>
           <div class="service-desc">針對運動後緊繃與肌筋膜張力進行深層放鬆，徒手搭配專業筋膜刀，恢復肌肉彈性，提升運動表現。</div>
-          <div class="btn-group">
-            <a href="./fascia.html" class="btn-more">了解更多</a>
-            <a href="https://line.me/R/oaMessage/@604hrrlc/?我是透過馨文的網站來的%20我想體驗專業筋膜放鬆" target="_blank" rel="noopener noreferrer" class="buy-btn">預約體驗</a>
-          </div>
+          <a href="./fascia.html" class="buy-btn">了解專業筋膜放鬆 ➔</a>
         </div>
 
         <!-- 🤝 卡片 4：招募事業夥伴卡片 -->
